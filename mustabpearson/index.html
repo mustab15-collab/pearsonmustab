@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .patriotism-intro {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .patriotism-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f4c542, #e63946, #2d6a4f, #f4c542);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .intro-content h2 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .intro-content h2 span {
+            color: #f4c542;
+        }
+        .intro-text {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+            opacity: 0;
+        }
+        .patriotism-values {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .value-item {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        .value-item:nth-child(1) { animation-delay: 0.3s; }
+        .value-item:nth-child(2) { animation-delay: 0.4s; }
+        .value-item:nth-child(3) { animation-delay: 0.5s; }
+            .value-item:nth-child(4) { animation-delay: 0.6s; }
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .value-item i {
+            font-size: 24px;
+            color: #f4c542;
+        }
+        .value-item span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .patriotic-ways {
+            padding: 80px 40px;
+            background: #f9f9f9;
+        }
+        .patriotic-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .patriotic-header h2 {
+            font-size: 38px;
+            color: #333;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .patriotic-header h2 span {
+            color: #f4c542;
+        }
+        .patriotic-header p {
+            font-size: 18px;
+            color: #555;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+            opacity: 0;
+        }
+        .patriotic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .patriotic-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        .patriotic-card:nth-child(1) { animation-delay: 0.3s; }
+        .patriotic-card:nth-child(2) { animation-delay: 0.4s; }
+        .patriotic-card:nth-child(3) { animation-delay: 0.5s; }
+        .patriotic-card:nth-child(4) { animation-delay: 0.6s; }
+        .patriotic-card:nth-child(5) { animation-delay: 0.7s; }
+        .patriotic-card:nth-child(6) { animation-delay: 0.8s; }
+        .patriotic-card:nth-child(7) { animation-delay: 0.9s; }
+        .patriotic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .patriotic-card .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f4c542, #e0b837);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .patriotic-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .patriotic-card .card-icon i {
+            font-size: 28px;
+            color: white;
+        }
+        .patriotic-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .patriotic-card ul {
+            list-style: none;
+        }
+
+        .patriotic-card ul li {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .patriotic-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f4c542;
+            font-weight: bold;
+        }
+        
+        .patriotic-conclusion {
+            text-align: center;
+            max-width: 700px;
+            margin: 50px auto 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f4c542, #e0b837);
+            border-radius: 20px;
+            animation: fadeInUp 1s ease forwards 1s;
+            opacity: 0;
+        }
+        .patriotic-conclusion i {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 15px;
+            display: block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .patriotic-conclusion p {
+            font-size: 18px;
+            color: white;
+            line-height: 1.8;
+        }
+        .patriotic-conclusion strong {
+            font-size: 20px;
+        }
+        
+        .section-card {
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 30px 40px;
+        }
+        .section-card .card-content {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .section-card .card-image {
+            flex: 1;
+            min-height: 400px;
+        }
+        .section-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .section-card h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .section-card h1 span {
+            color: #f4c542;
+        }
+        .section-card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .section-card .highlight {
+            color: #f4c542;
+            font-weight: bold;
+        }
+        
+        .mission-card {
+            background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+            border-left: 5px solid #f4c542;
+        }
+        
+        .about-card {
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            border-right: 5px solid #2d6a4f;
+            flex-direction: row-reverse;
+        }
+        
+@media (max-width: 900px) {
+    .patriotic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro-content h2 {
+        font-size: 34px;
+    }
+
+    .intro-text {
+        font-size: 18px;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .patriotism-values {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .value-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .patriotic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .patriotism-intro,
+    .patriotic-ways {
+        padding: 50px 20px;
+    }
+
+    .patriotic-header h2,
+    .intro-content h2 {
+        font-size: 26px;
+    }
+    
+    .section-card {
+        flex-direction: column;
+        margin: 20px 15px;
+    }
+    .section-card .card-content {
+        padding: 30px 20px;
+        order: 1;
+    }
+    .section-card .card-image {
+        min-height: 250px;
+        order: 2;
+    }
+    .section-card h1 {
+        font-size: 28px;
+    }
+    .section-card.about-card {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 10px 15px;
+            }
+              section {
+    padding: 50px 20px ;
+  }
+
+            .navbar .logo {
+                order: 1;
+            }
+            .navbar .nav-btn {
+                order: 2;
+            }
+            .navbar nav {
+                order: 3;
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 0;
+            }
+            .navbar nav.active {
+                display: flex;
+            }
+            .navbar nav a {
+                padding: 12px 0;
+                width: 100%;
+                font-size: 16px;
+            }
+            .navbar .dropdown-content {
+                position: static;
+                box-shadow: none;
+                padding-left: 20px;
+            }
+            .navbar .hamburger {
+                display: block;
+                order: 3;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            .hero-content {
+                padding-top: 150px;
+                margin-left: 20px;
+                margin-right: 20px;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                width: 100%;
+                font-size: 16px;
+            }
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .first, .second {
+                width: 100%;
+                max-width: 250px;
+            }
+            .first a {
+                color: white;
+            }
+            .hashtag {
+                font-size: 12px;
+            }
+            .patriotism-intro {
+                padding: 50px 20px;
+            }
+            .intro-content h2 {
+                font-size: 28px;
+            }
+            .intro-text {
+                font-size: 16px;
+            }
+            .patriotic-ways {
+                padding: 50px 20px;
+            }
+            .patriotic-header h2 {
+                font-size: 28px;
+            }
+            .patriotic-conclusion {
+                margin: 30px 15px 0;
+                padding: 20px;
+            }
+            .patriotic-conclusion p {
+                font-size: 16px;
+            }
+            .statistics {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 30px 20px;
+                justify-content: center;
+            }
+            .statistics .one {
+                flex: 1 1 45%;
+                min-width: 120px;
+                text-align: center;
+                padding: 15px;
+            }
+            .statistics h1 {
+                font-size: 28px;
+                padding-top: 0;
+            }
+            .statistics h3 {
+                padding-top: 5px;
+                font-size: 14px;
+            }
+            #mission {
+                flex-direction: column;
+                padding: 50px 20px;
+                gap: 30px;
+                /* height: 0vh; */
+            }
+            .mission-container h1 {
+                font-size: 28px;
+                padding-left: 0;
+            }
+            .mission-container p {
+                width: 100%;
+                font-size: 16px;
+                padding-left: 0;
+            }
+            .img img {
+                width: 100%;
+                height: auto;
+            }
+            #about {
+                height: auto;
+            }
+            .aboutcontent {
+                flex-direction: column-reverse;
+                padding: 30px 20px;
+            }
+          
+        
+            .firstbox {
+                width: 100%;
+            }
+            .firstbox h1 {
+                font-size: 24px;
+            }
+            .firstbox p {
+                width: 100%;
+                font-size: 15px;
+            }
+            .statisti {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 30px 20px;
+            }
+            .statisti .aboutone, .statisti .aaboutone {
+                flex: 1 1 45%;
+                min-width: 120px;
+                text-align: center;
+                padding: 15px;
+            }
+            .imgabout h1 {
+                font-size: 28px;
+                padding-top: 30px;
+            }
+            .goals-container {
+                grid-template-columns: 1fr;
+            }
+            .ministry-section {
+                padding: 50px 20px;
+            }
+            .ministry-container {
+                grid-template-columns: 1fr;
+            }
+            .ministry-content h2 {
+                font-size: 28px;
+                margin-left: 0;
+            }
+            .message-box {
+                border-left: none;
+                border-top: 4px solid #FFD700;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+            .message-box p {
+                font-size: 15px;
+            }
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .mission-container img {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    
+
+  <section class="hero">
+   <div class="maiinn">
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <div class="logoimg">
+          <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+        </div>
+      </a>
+      <div class="logoname">
+        <h5>SANKOFA GHANA</h5>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="dropdown">
+<a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a>
+        <div class="dropdown-content">
+          <a href="symbols.html">Symbolism & Arts</a>
+          <a href="lang.html">Language & Communication</a>
+          <a href="music.html">Performing Arts</a>
+          <a href="dressing.html">Traditional Dressing</a>
+        </div>
+      </div>
+      <a href="food.html">Food</a>
+      <a href="rites.html">Rite of Passages</a>
+      <a href="festivals.html">Festivals</a>
+      <a href="gallery.html">Gallery</a>
+      
+      <a href="contact.html" class="nav-btn">Join the Movement</a>
+    </nav>
+  </header>
+
+   </div>
+
+    <div class="hero-content">
+      
+      <h1>
+        OUR CULTURE.<br>
+        <span>OUR GHANA.</span>
+      </h1>
+
+      <p>
+    Using Ghanaian culture and tradition as a storytelling tool to promote patriotism, unity, and civic responsibility among youth.
+      </p>
+
+      <div class="buttons">
+        <button class="first"><a href="contact.html">Join the Movement</a> </button>
+    <a href="/about.html"><button class="second">Learn More</button> </a>
+      </div>
+
+   
+    </div>
+ 
+   </section>
+
+
+
+
+      <div class="statistics">
+        <div class="one">
+<h1>33M+</h1>
+<h3>Ghanaians United</h3>
+        </div>
+        <div class="one">
+            <h1> 16</h1>
+            <h3> Regions, One Nation</h3>
+        </div>
+        <div class="one">
+            <h1>67</h1>
+            <h3>
+                Years of Independence
+            </h3>
+        </div>
+        <div class="one">
+            <h1> 100+</h1>
+            <h3> Ethnic Groups</h3>
+        </div>
+    </div>
+       <section class="patriotism-intro">
+       <div class="intro-content">
+           <h2> ARE YOU <span>PATRIOTIC</span> ?</h2>
+           <p class="intro-text">Patriotism is the love and respect citizens show for their country through actions, values, and culture. In Ghana, it connects deeply with our traditions, unity, and shared identity.</p>
+           <div class="patriotism-values">
+               <div class="value-item">
+                   <i class="fa-solid fa-heart"></i>
+                   <span>Love for Ghana</span>
+               </div>
+               <div class="value-item">
+                   <i class="fa-solid fa-flag"></i>
+                   <span>Pride in Heritage</span>
+               </div>
+               <div class="value-item">
+                   <i class="fa-solid fa-handshake"></i>
+                   <span>Unity in Diversity</span>
+               </div>
+               <div class="value-item">
+                   <i class="fa-solid fa-shield-halved"></i>
+                   <span>National Responsibility</span>
+               </div>
+           </div>
+       </div>
+   </section>
+
+<section id="about">
+<div class="section-card about-card">
+    <div class="card-content">
+        <h1>PATRIOTISM THROUGH <br> <span>CULTURE & TRADITION</span></h1>
+        <p>Patriotism in Ghana is more than a word - it is a living expression of our culture and traditions. It is found in the rhythms of our drums, the colours of our kente, the stories passed down through generations, and the values that shape how we live as a people.</p>
+        <p>It is the farmer who rises at dawn, continuing a legacy of hard work rooted in our heritage. The teacher who nurtures young minds, passing on knowledge and values that define who we are. The young innovator building solutions inspired by Ghanaian identity. The market woman whose resilience reflects the strength and unity of our communities.</p>
+        <p>To be patriotic in Ghana is to live our culture daily - not only in celebration, but in responsibility.</p>
+        <p>Our culture teaches us who we are.<br>Our traditions guide how we live.<br>And through them, we build a stronger Ghana.</p>
+    </div>
+    <div class="card-image">
+        <img src="https://i.pinimg.com/1200x/7b/c4/7b/7bc47b8b56ad285ecda4a0e85bb2ec4a.jpg" alt="Patriotism Through Culture">
+    </div>
+</div>
+</section>
+<section id="mission">
+<div class="section-card mission-card">
+    <div class="card-content">
+        <h1> TOGETHER <br> WE ARE <br> <span>GHANA</span></h1>
+        <p>The "Sankofa Ghana" campaign is a call to every citizen, at home and abroad, to celebrate what makes us uniquely Ghanaian. From our vibrant culture to our shared values, from our rich history to our bright future, this campaign is about rekindling the fire of patriotism in every heart.</p>
+        <p>Commissioned by <span class="highlight">Ministry of Information</span>, this initiative especially targets the youth of Ghana, empowering the next generation to lead with pride, unity, and purpose.</p>
+    </div>
+    <div class="card-image">
+        <img src="https://i.pinimg.com/1200x/5c/14/51/5c145174235b6ea57fac8d06324716b5.jpg" alt="Together Ghana">
+    </div>
+</div>
+</section>
+
+
+   <div class="statisti">
+        <div class="aboutone">
+<h1>PATROITISM</h1>
+<h3>Love for Ghana</h3>
+        </div>
+        <div class="aboutone">
+            <h1> UNITY</h1>
+            <h3> One nation, one people</h3>
+        </div>
+        <div class="aaboutone">
+            <h1>RESPONSIBILITY</h1>
+            <h3>
+             Active citizenship
+            </h3>
+        </div>
+        <div class="aboutone">
+            <h1> IDENTITY</h1>
+            <h3> Cultural pride</h3>
+        </div>
+    </div>
+<div class="aboutbars">
+
+
+<div class="imgabout">
+
+
+<h1 align="center"> CAMPAIGN  <span> GOALS</span> </h1>
+<div class="line"></div>
+<p align="center">Using culture and tradition to inspire pride, unity, and active citizenship in Ghana.</p>
+
+  <div class="goals-container">
+
+    <div class="goal-card">
+      <div class="icon red"><i class="fa-solid fa-heart fa-xl" style="color: rgb(255, 0, 0);"></i></div>
+      <h3>Promote Cultural Pride</h3>
+      <p>Encourage Ghanaians to take pride in their traditions, clothing, food, and cultural identity.</p>
+    </div>
+
+    <div class="goal-card">
+      <div class="icon gold"><i class="fa-solid fa-hands-clapping fa-xl" style="color: #FFD700"></i></div>
+      <h3>Celebrate Traditions</h3>
+      <p>Highlight festivals, music, dance, and customs as a way of preserving Ghanaian heritage.</p>
+    </div>
+
+    <div class="goal-card">
+      <div class="icon green"> <i class="fa-solid fa-hand-holding-hand fa-xl" style="color: green;"></i></div>
+      <h3>Strengthen Unity Through Culture</h3>
+      <p>Use shared traditions and values to bring people together across regions and communities.</p>
+    </div>
+
+    <div class="goal-card">
+      <div class="icon red"><i class="fa-solid fa-landmark fa-xl" style="color: rgb(255, 0, 0);"></i></div>
+      <h3>Preserve Cultural Knowledge</h3>
+      <p>Educate younger generations about Ghanaian history, symbols, and traditional values.</p>
+    </div>
+
+    <div class="goal-card">
+      <div class="icon gold"><i class="fa-solid fa-earth-africa fa-xl" style="color: rgb(255, 212, 59);"></i></div>
+      <h3>Connect the Diaspora</h3>
+      <p>Strengthen the bond between Ghanaians at home and abroad through shared cultural identity.</p>
+    </div>
+
+    <div class="goal-card">
+      <div class="icon green"><i class="fa-solid fa-children fa-xl" style="color: rgb(6, 187, 6);"></i></div>
+      <h3>Engage the Youth</h3>
+      <p>Encourage young people to express and promote culture through creativity and digital platforms.</p>
+    </div>
+
+  </div>
+<div class="ministry-section">
+
+  <div class="ministry-container">
+
+
+    <div class="ministry-image">
+      <img src="https://i.pinimg.com/1200x/8f/7e/f3/8f7ef3ecc4838ebcf4b41eaa7954b2a0.jpg" height="350px" alt="Ghanaian culture">
+    </div>
+
+
+    <div class="ministry-content">
+
+
+      <h2>
+        A CALL TO <br>
+        <span>OUR CULTURE</span>
+      </h2>
+
+      <div class="message-box">
+        <p>
+          Ghana’s greatest strength has always been its culture  the traditions, values, and identity that shape who we are as a people. From our festivals and music to our food and clothing, culture is the foundation of our unity and pride.
+     <br>
+
+     
+          We call on the youth  the storytellers, the creators, and the future leaders  to embrace and carry forward our cultural heritage. Let it guide your actions, inspire your creativity, and connect you to your roots.
+   <br>
+
+   
+          Together, through our shared traditions and values, we can build a stronger, more united Ghana. Our culture is not just our past  it is our future.
+        </p>
+
+        <!-- <h4 align="center">Ministry of Information, Ghana</h4> -->
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<section id="myculture">
+
+<div class="imgabout">
+
+
+<h1 align="center"> EXPLORE  <span> GHANA</span> </h1>
+<div class="line"></div>
+<p align="center">Ghana is home to over 100 ethnic groups, each with their own language, customs, and traditions. Yet through this diversity runs a common thread of warmth, hospitality, and pride. From the colourful kente of the Ashanti to the smock-weaving of the north, from the drumming of the Ga to the dances of the Ewe — every tradition adds a vibrant thread to the tapestry of what it means to be Ghanaian. From our traditions and festivals to our food and <br> fashion, culture defines who we are as a people.</p>
+
+</div>
+<section class="culture-main">
+
+  <div class="culture-grid">
+
+    <div class="culture-box-food">
+      <h3>Food</h3>
+      <p>Discover how Ghana’s diverse ethnic groups express culture through cuisine.</p>
+      <a href="#myfood" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-lang">
+      <h3>Language</h3>
+      <p>Explore the languages that shape identity and communication across Ghana.</p>
+      <a href="lang.html" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-dress">
+      <h3>Dressing</h3>
+      <p>Experience traditional clothing and their meanings in Ghanaian culture.</p>
+      <a href="dressing.html" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-musicanddance">
+      <h3>Music & Dance</h3>
+      <p>Feel the rhythm of Ghana through traditional and modern expressions.</p>
+      <a href="music.html" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-festival">
+      <h3>Festivals</h3>
+      <p>Celebrate traditions and community through Ghanaian festivals.</p>
+      <a href="festivals.html" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-festiva">
+      <h3>Rite of Passages</h3>
+      <p>Discover the ceremonies that mark important life transitions.</p>
+      <a href="rites.html" class="explore-btn">Explore</a>
+    </div>
+
+    <div class="culture-box-adinkra">
+      <h3>Adinkra symbols</h3>
+      <p>Explore the wisdom and meanings behind Ghanaian symbols.</p>
+      <a href="symbols.html" class="explore-btn">Explore</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+            <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+            <div class="footer-gov-logos">
+                <a href="https://ghanaculture.gov.gh/" target="_blank">
+                    <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                </a>
+                <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                    <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="culture.html">Culture/Traditions</a>
+            <a href="food.html">Food</a>
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+        </div>
+        
+        <div class="footer-categories">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="symbols.html">Adinkra Symbols</a></li>
+                <li><a href="lang.html">Languages</a></li>
+                <li><a href="dressing.html">Traditional Dressing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-contact">
+            <h4>Get Involved</h4>
+            <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+            <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+            <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+          
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p align="">&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+   
+    </div>
+</footer>
+
+    <script src="nav.js"></script>
+        
+</body>
+</html> 

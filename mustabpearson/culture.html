@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture & Traditions - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV_lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTwitter==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .culture-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/1200x/39/57/fb/3957fbe49e017a94db5b6f18abd277cd.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .culture-hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+        .culture-hero p {
+            font-size: 22px;
+            color: #ddd;
+        }
+        .culture-hero span {
+            color: #f4c542;
+        }
+        
+        .culture-section {
+            padding: 60px 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 38px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .section-title h2 span {
+            color: #f4c542;
+        }
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .traditions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tradition-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .tradition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .tradition-icon {
+            font-size: 40px;
+            color: #f4c542;
+            margin-bottom: 15px;
+        }
+        .tradition-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .tradition-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .explore-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #f4c542;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .explore-link:hover {
+            color: #e0b837;
+            text-decoration: underline;
+        }
+        
+        .importance-section {
+            background: #f9f9f9;
+        }
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .importance-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .importance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .importance-card i {
+            font-size: 45px;
+            color: #f4c542;
+            margin-bottom: 20px;
+        }
+        .importance-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .importance-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .patriotism-section {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://i.pinimg.com/1200x/8f/7e/f3/8f7ef3ecc4838ebcf4b41eaa7954b2a0.jpg') no-repeat center center/cover; */
+            padding: 80px 40px;
+            background-color: black;
+            color: white;
+        }
+        .patriotism-section .section-title h2,
+        .patriotism-section .section-title p {
+            color: white;
+        }
+        .patriotism-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .patriotism-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+        .patriotism-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        .patriotism-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #f4c542;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .patriotism-card h3 i {
+            font-size: 24px;
+        }
+        .patriotism-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #ddd;
+        }
+        
+        .culture-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://i.pinimg.com/1200x/2c/12/71/2c127122fff391921f415e1788672667.jpg') no-repeat center center/cover;
+            padding: 80px 40px;
+            text-align: center;
+            color: white;
+        }
+        .culture-cta h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+        .culture-cta p {
+            font-size: 18px;
+            color: #ddd;
+        }
+        
+        @media (max-width: 900px) {
+            .traditions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .patriotism-grid {
+                grid-template-columns: 1fr;
+            }
+            .importance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .traditions-grid {
+                grid-template-columns: 1fr;
+            }
+            .culture-hero h1 {
+                font-size: 40px;
+            }
+            .patriotism-card h3 {
+                font-size: 18px;
+            }
+            .importance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maiinn">
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logoimg">
+                        <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                    </div>
+                </a>
+                <div class="logoname">
+                    <h5>SANKOFA GHANA</h5>
+                </div>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">              
+                      <a href="/culture.html" class="dropbtn" onclick="toggleDropdown()">Cuture/Traditions ▾</a>
+
+<!-- <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a> -->
+                    <div class="dropdown-content">
+                        <a href="symbols.html">Symbolism & Arts</a>
+                        <a href="lang.html">Language & Communication</a>
+                        <a href="music.html">Performing Arts</a>
+                        <a href="dressing.html">Traditional Dressing</a>
+                    </div>
+                </div>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+                <a href="gallery.html">Gallery</a>
+                <!-- <a href="contact.html">Contact</a> -->
+                <a href="contact.html" class="nav-btn">Join the Movement</a>
+            </nav>
+        </header>
+    </div>
+
+    <section class="culture-hero">
+        <div>
+            <h1>CULTURE & <span>TRADITIONS</span></h1>
+            <p>The heartbeat of Ghana - where heritage meets identity</p>
+        </div>
+    </section>
+
+    <section class="culture-section importance-section">
+        <div class="section-title">
+            <h2>WHY <span>CULTURE MATTERS</span></h2>
+            <p>Culture and traditions are the foundation of patriotism in Ghana. They connect us to our roots, unite us as a people, and inspire us to build a better nation together.</p>
+        </div>
+        <div class="importance-grid">
+            <div class="importance-card">
+                <i class="fa-solid fa-link"></i>
+                <h3>Connection to Roots</h3>
+                <p>Our traditions link us to our ancestors, preserving wisdom and values passed down through generations.</p>
+            </div>
+            <div class="importance-card">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <h3>Identity & Pride</h3>
+                <p>Cultural expressions like Kente, Adinkra symbols, and festivals strengthen our national identity and pride.</p>
+            </div>
+            <div class="importance-card">
+                <i class="fa-solid fa-people-group"></i>
+                <h3>Unity in Diversity</h3>
+                <p>Despite our many ethnic groups, shared traditions unite us as one Ghanaian people.</p>
+            </div>
+            <div class="importance-card">
+                <i class="fa-solid fa-seedling"></i>
+                <h3>Future Foundation</h3>
+                <p>Teaching youth our traditions ensures our heritage continues and inspires responsible citizenship.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-section">
+        <div class="section-title">
+            <h2>OUR <span>TRADITIONS</span></h2>
+            
+            <p>Ghanaian traditions are the threads that weave our communities together. From the royal courts of Asante to the coastal villages, each tradition tells a story of who we are.</p>
+        </div>
+        <div class="traditions-grid">
+            <div class="tradition-card">
+                <div class="tradition-icon"><i class="fa-solid fa-eye"></i></div>
+                <h3>Symbolism & Arts</h3>
+                <p>Adinkra symbols that communicate wisdom, values, and our connection to the past.</p>
+                <a href="symbols.html" class="explore-link">Learn More →</a>
+            </div>
+            <div class="tradition-card">
+                <div class="tradition-icon"><i class="fa-solid fa-scroll"></i></div>
+                <h3>Traditional Dressing</h3>
+                <p>Kente weaving and the Northern Smock - clothing that carries meaning and heritage.</p>
+                <a href="dressing.html" class="explore-link">Learn More →</a>
+            </div>
+            <div class="tradition-card">
+                <div class="tradition-icon"><i class="fa-solid fa-comments"></i></div>
+                <h3>Language & Communication</h3>
+                <p>Over 80 languages and dialects that define our identity and communication.</p>
+                <a href="lang.html" class="explore-link">Learn More →</a>
+            </div>
+          
+            <div class="tradition-card">
+                <div class="tradition-icon"><i class="fa-solid fa-book-open"></i></div>
+                <h3>Oral Traditions</h3>
+                <p>The educational power of proverbs, storytelling, and wisdom passed through generations.</p>
+                <a href="lang.html" class="explore-link">Learn More →</a>
+            </div>
+            <div class="tradition-card">
+                <div class="tradition-icon"><i class="fa-solid fa-music"></i></div>
+                <h3>Performing Arts</h3>
+                <p>Traditional drums, folk songs, and dance that celebrate our spirit and unity.</p>
+                <a href="music.html" class="explore-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="patriotism-section">
+        <div class="section-title">
+            <h2>CULTURAL <span>PATRIOTISM</span></h2>
+            <p>In Ghana, patriotism is deeply rooted in loving the land, honoring ancestral heritage, and contributing to the collective good of society.</p>
+        </div>
+        <div class="patriotism-grid">
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-calendar-star"></i> Festivals as Unity Tools</h3>
+                <p>Traditional festivals such as Homowo, Hogbetsotso, and Panafest serve as platforms to reinforce cultural identity, showcase history, and foster community spirit across all ethnic groups.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-drum"></i> Cultural Arts & Performance</h3>
+                <p>Traditional drumming, dancing, and folklore transmit historical knowledge and promote unity. Folk songs educate the youth on history and encourage them to prioritize the nation, resist corruption, and protect the environment.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-users"></i> Communalism & Social Responsibility</h3>
+                <p>A key deeply rooted tradition is the sense of community (communalism), which translates into patriotic duty—looking beyond self-interest to contribute to the nation's development. Supporting the National Health Insurance Scheme (NHIS) is a collective, patriotic act.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-shirt"></i> Traditional Dress & Textiles</h3>
+                <p>The wearing of Kente cloth and other traditional garments, such as the Batakali from Northern Ghana, is a significant display of cultural pride and national identity at ceremonies and celebrations.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-crown"></i> Traditional Institutions</h3>
+                <p>The role of traditional leaders (chiefs and queen mothers) and institutions, such as the Ashanti Kingdom, remains strong and is crucial in fostering local and national cohesion and unity.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-handshake"></i> Hospitality as National Brand</h3>
+                <p>The renowned Ghanaian hospitality, shown through the warm greeting "Akwaaba" (welcome), is a cultural hallmark that contributes to the country's image and national pride.</p>
+            </div>
+            <div class="patriotism-card">
+                <h3><i class="fa-solid fa-hand-holding-heart"></i> Love for the Land</h3>
+                <p>Patriotism in Ghana is not just about political loyalty but is deeply rooted in loving the land, honoring ancestral heritage, and contributing to the collective good of society.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+<div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+                <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+                <div class="footer-gov-logos">
+                    <a href="https://ghanaculture.gov.gh/" target="_blank">
+                        <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                    </a>
+                    <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                        <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="culture.html">Culture/Traditions</a>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="symbols.html">Adinkra Symbols</a></li>
+                    <li><a href="lang.html">Languages</a></li>
+                    <li><a href="dressing.html">Traditional Dressing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get Involved</h4>
+                <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+                <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+                <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+         
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+          
+        </div>
+    </footer>
+<script>
+    function toggleMenu() {
+        var nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+    }
+    
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget.parentElement;
+        dropdown.classList.toggle('active');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        var navLinks = document.querySelectorAll('#nav-menu a');
+        
+        navLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

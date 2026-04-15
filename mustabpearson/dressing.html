@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Dressing - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dressing-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/1200x/7b/c4/7b/7bc47b8b56ad285ecda4a0e85bb2ec4a.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .dressing-hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        .dressing-hero p {
+            font-size: 20px;
+            color: #ddd;
+        }
+        .dressing-hero span {
+            color: #f4c542;
+        }
+        #traditional-attire {
+            padding: 50px 40px;
+        }
+        .attire-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .attire-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .attire-card:hover {
+            transform: translateY(-10px);
+        }
+        .attire-img {
+            width: 100%;
+            height: 350px;
+            /* overflow: hidden; */
+        }
+        .attire-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .attire-content {
+            padding: 25px;
+        }
+        .attire-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .attire-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+        }
+        .attire-tag {
+            display: inline-block;
+            background: #f4c542;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+        .read-more-btn {
+            display: inline-block;
+            background: #f4c542;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .read-more-btn:hover {
+            background: #d4a830;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+        }
+        .modal-close:hover {
+            color: #f4c542;
+        }
+        .modal-content h3 {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        #kente-section {
+            background: #111;
+            padding: 60px 40px;
+            color: white;
+        }
+        .kente-content {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        .kente-img {
+            flex: 1;
+        }
+        .kente-img img {
+            border-radius: 20px;
+            width: 90%;
+            height: 450px;
+            
+        }
+        .kente-text {
+            flex: 1;
+        }
+        .kente-text h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .kente-text h2 span {
+            color: #f4c542;
+        }
+        .kente-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        #modern-traditional {
+            padding: 50px 40px;
+            background: #f9f9f9;
+        }
+        .modern-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .modern-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            /* display: flex; */
+            gap: 20px;
+            align-items: center;
+        }
+        .modern-card i {
+            font-size: 40px;
+            color: #f4c542;
+        }
+        .modern-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .modern-card p {
+            font-size: 15px;
+            color: #666;
+        }
+        @media (max-width: 900px) {
+            .attire-grid, .modern-grid {
+                grid-template-columns: 1fr;
+            }
+            .kente-content {
+                flex-direction: column;
+            }
+            .attire-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .attire-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maiinn">
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logoimg">
+                        <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                    </div>
+                </a>
+                <div class="logoname">
+                    <h5>SANKOFA GHANA</h5>
+                </div>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a>
+                    <div class="dropdown-content">
+                        <a href="symbols.html">Symbolism & Arts</a>
+                        <a href="lang.html">Language & Communication</a>
+                        <a href="music.html">Performing Arts</a>
+                        <a href="dressing.html">Traditional Dressing</a>
+                    </div>
+                </div>
+                <a href="food.html">Food</a>
+                <!-- <a href="rites.html">Rite of Passages</a> -->
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+                <a href="gallery.html">Gallery</a>
+                <!-- <a href="contact.html">Contact</a> -->
+                <a href="contact.html" class="nav-btn">Join the Movement</a>
+            </nav>
+        </header>
+    </div>
+
+    <section class="dressing-hero">
+        <div class="dressing-hero-content">
+            <h1>TRADITIONAL <span>DRESSING</span></h1>
+            <p>The clothing that tells our story</p>
+        </div>
+    </section>
+
+    <section id="traditional-attire">
+        <div class="imgabout">
+            <h1 align="center">THE ART OF <span>GHANAIAN DRESS</span></h1>
+            <div class="line"></div>
+fabric  it is a language
+        </div>
+        <div class="attire-grid">
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/7b/c4/7b/7bc47b8b56ad285ecda4a0e85bb2ec4a.jpg" alt="Kente"> -->
+                    <img src="https://i.pinimg.com/1200x/e8/ef/01/e8ef0107aaadea32a04e0fa19eabf189.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Kente</h3>
+meanings  from "Sika Fre Mogya"
+                    <span class="attire-tag">Ashanti Region</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/88/27/2c/88272c6c636117c256073d0671dcff31.jpg" alt="Smock"> -->
+                     <img src="https://i.pinimg.com/736x/6d/69/9a/6d699a8457115996bff756dccb17a678.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Northern Smock (Dagne)</h3>
+pattern tells a story  the diamond shapes
+                    <span class="attire-tag">Northern Region</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/39/57/fb/3957fbe49e017a94db5b6f18abd277cd.jpg" alt="Kente Cloth"> -->
+                    <img src="https://i.pinimg.com/736x/fd/c7/28/fdc728881b250836ac132a6ccea07fc7.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Kitenge</h3>
+cultural significance  some represent fertility
+                    <span class="attire-tag">Nationwide</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/a1/1c/62/a11c6260c802fd078d505a9d87f8cbdd.jpg" alt="Kaftan"> -->
+                <img src="https://i.pinimg.com/1200x/0e/12/6a/0e126a63a9f436c65107895e5650d1e3.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Grand Dress (Kaftan)</h3>
+                    <p>The elegant long robe worn by Ghanaian men for formal occasions, traditionally paired with a matching cap (fillet or kofi cap). Known as "Grand Dress" in Ghanaian parlance, this attire draws from Mande influences from Mali and Senegal through the ancient trade routes. The flowing fabric symbolizes dignity and respect. Modern variations incorporate Kente patterns on the collar and cuffs, blending traditional craftsmanship with contemporary fashion.</p>
+                    <span class="attire-tag">Formal Wear</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/70/b0/4d/70b04dd9a93fb82a51aa28a96600f467.jpg" alt="Wedding"> -->
+                     <img src="https://i.pinimg.com/736x/65/50/c6/6550c68daac35d44d6c13464a2bd60de.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Kente Wedding</h3>
+"Ntor"  a wrap-style Kente with elaborate head ties
+                    <span class="attire-tag">Ceremonial</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/39/57/fb/3957fbe49e017a94db5b6f18abd277cd.jpg" alt="Kaba"> -->
+                     <img src="https://i.pinimg.com/1200x/87/fa/8e/87fa8e0ef363d216fb035fa1d5716f6e.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Kaba and Slit</h3>
+                    <p>The most common traditional attire for Ghanaian women, consisting of a tailored top (Kaba) paired with a wrapped skirt (Slit). This style originated from the Akan people and evolved through colonial influence, combining African fabrics with European tailoring techniques. Today, the Kaba and Slit comes in endless variations — from simple everyday wear to elaborate designs featuring embroidery, beads, and matching head ties. The head tie (Gele) is often styled in complex arrangements that can take years to master.</p>
+                    <span class="attire-tag">Akan Regions</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kente-section">
+           <div class="imgabout">
+            <h1 align="center">THE NORTHERN <span>SMOCK</span> & <span>KENTE</span></h1>
+            <div class="line"></div>
+            <p align="center">Hand-embroidered excellence from Northern Ghana, worn with pride at ceremonies and celebrations.</p>
+        </div>
+     
+                <div class="kente-content">
+           
+              <div class="kente-text">
+                <h2>THE ROYAL <span>SMOCK (DAGNE)</span></h2>
+                <p>The Northern Ghana smock, known as "Dagne" among the Dagara and "Woko" among the Mamprusi, is one of the most distinctive traditional garments in Ghana. Unlike Kente, which is woven, the smock is carefully embroidered by hand using cotton or silk threads, with intricate geometric patterns that tell stories of the wearer's family, clan, and social status.</p>
+                <p>History traces the smock to the ancient Kingdoms of Dagbon, where it was worn exclusively by royalty and warriors. Over centuries, the garment spread to the Dagara, Mamprusi, Dagomba, and other Northern ethnic groups, each developing their own unique embroidery styles.</p>
+                <!-- <button class="read-more-btn" onclick="showReadMore('smock')">Read More</button> -->
+            </div>
+            
+            <div class="kente-img">
+                <img src="https://ghanaculture.gov.gh/wp-content/uploads/2025/11/top4.jpg" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/88/27/2c/88272c6c636117c256073d0671dcff31.jpg" alt="Northern Smock"> -->
+            </div>
+
+        </div>
+           <div class="kente-content">
+
+            <div class="kente-img">
+                <img src="https://i.pinimg.com/736x/ee/3d/59/ee3d596a898e0a99517b6b6ccbb1790c.jpg" height="" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/7b/c4/7b/7bc47b8b56ad285ecda4a0e85bb2ec4a.jpg" alt="Kente Weaving"> -->
+            </div>
+            <div class="kente-text">
+                <h2>THE ROYAL <span>KENTE</span></h2>
+                <p>Kente is more than just a pattern — it is a visual language. Originally woven exclusively for Asante kings and queens, Kente was a symbol of royalty, spiritual significance, and divine protection. The art of Kente weaving traces back to the ancient Ashanti Kingdom, where master weavers were highly honored and their craft was considered sacred.</p>
+                <p>Each woven design has a name and meaning passed down through generations. "Sika Fre Mogya" (gold catches blood) represents blood relationships and the importance of family bonds. "Owusu" signifies the matriarchal lineage central to Akan society. "Owo Foro Adobe" (the eagle flies to the royal stool) represents ambition and the pursuit of excellence.</p>
+                <!-- <button class="read-more-btn" onclick="showReadMore('kente')">Read More</button> -->
+            </div>
+        </div>
+    </section>
+
+   
+     
+        
+    <section id="regional-attire">
+        <div class="imgabout">
+            <h1 align="center">REGIONAL <span>TRADITIONS</span></h1>
+            <div class="line"></div>
+            <p align="center">Each of Ghana's diverse ethnic groups has its own distinctive traditional attire, reflecting unique histories and cultural identities.</p>
+        </div>
+        <div class="attire-grid">
+            <div class="attire-card">
+                <div class="attire-img">
+                    <img src="https://i.pinimg.com/1200x/8a/cd/2f/8acd2fd8782536c920fde9a0973d5e8e.jpg" alt="">
+                    <!-- <img src="https://i.pinimg.com/1200x/7b/c4/7b/7bc47b8b56ad285ecda4a0e85bb2ec4a.jpg" alt="Ewe Traditional"> -->
+                </div>
+                <div class="attire-content">
+                    <h3>Ewe Traditional Wear</h3>
+                    <p>The Ewe people of Volta Region are known for their distinctive "Wovuvi" or "Amedure" cloth — hand-woven cotton with intricate patterns. The Ewe have maintained some of the most complex weaving traditions in Ghana, with patterns passed down through matrilineal lines. Traditional Ewe dress includes the "kpakpo" wrapper for women and the "wokpoko" for men, often featuring symbolic geometric patterns representing proverbs and historical events.</p>
+                    <span class="attire-tag">Volta Region</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <img src="https://i.pinimg.com/1200x/5d/50/54/5d50540bc32d525f220da214a9aa61b4.jpg" alt="">
+                    <!-- <img src="https://i.pinimg.com/1200x/88/27/2c/88272c6c636117c256073d0671dcff31.jpg" alt="Ga Traditional"> -->
+                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7DqKr6pNsb3X7la_ifWl3SFgFufUvk5g9wg&s" alt=""> -->
+                </div>
+                <div class="attire-content">
+                    <h3>Ga Traditional Wear</h3>
+                    <p>The Ga people of Greater Accra Region have unique attire including the "kete" — a hand-woven cloth traditionally worn by Ga women for important ceremonies. The Kete features bold geometric patterns in red, yellow, and black. Ga men traditionally wear the "flingo" or white shirt with woven smock. The famous "Odung" crown, decorated with beads and cowrie shells, is worn by Ga chiefs and is a powerful symbol of Ga royal authority.</p>
+                    <span class="attire-tag">Greater Accra</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/8f/7e/f3/8f7ef3ecc4838ebcf4b41eaa7954b2a0.jpg" ÷alt="Dagomba Traditional"> -->
+               <img src="https://www.imb.org/?attachment_id=122187" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Dagomba Traditional Wear</h3>
+                    <p>The Dagomba people of Northern Region are known for their elaborate chief's attire, including the "Bokku" (royal hat) and heavily beaded regalia. The "Tohazhie" is a distinctive long woven shirt worn by Dagomba men, often decorated with intricate patterns. Women wear colorful wrappers with matching tops, and both genders use the "Kprekuma" or head tie. The Dagomba chiefs' regalia features extensive beadwork, indicating rank and status within the kingdom.</p>
+                    <span class="attire-tag">Northern Region</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/a1/1c/62/a11c6260c802fd078d505a9d87f8cbdd.jpg" alt="Fante Traditional"> -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOYWASTOusMxYuD8WMe9qdUb1rvnvoWtVmPQ&s" alt="">
+        
+                </div>
+                <div class="attire-content">
+                    <h3>Fante Traditional Wear</h3>
+                    <p>The Fante people of Central Region have their own Kente traditions, with patterns distinct from Asante designs. "Fante Kente" often features more abstract patterns and brighter color combinations. The famous "Abrafo" (warriors) wore distinctive red and black attire, while Fante chiefs wore elaborate Kente with gold ornamentation. Fante women traditionally wear the "Oyokoman" cloth — a deep green and red pattern symbolizing the Fante's connection to the sea and their maritime heritage.</p>
+                    <span class="attire-tag">Central Region</span>
+                </div>
+            </div>
+            <div class="attire-card">
+                <div class="attire-img">
+                    <!-- <img src="https://i.pinimg.com/1200x/39/57/fb/3957fbe49e017a94db5b6f18abd277cd.jpg" alt="Mole-Dagbon"> -->
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Tamale_fashion_week_2020_2.jpg" alt="">
+                </div>
+                <div class="attire-content">
+                    <h3>Mole-Dagbon Traditional Wear</h3>
+                    <p>The Mole-Dagbon people of Northern Region, including the Dagara and Mamprusi, are known for their distinctive woven smocks. The intricate embroidery on these garments tells stories of the wearer's clan and family history. Chiefs and royal guards wear elaborate leather caps and patterned wrappers with cowrie shell decorations. Women's dress includes colorful wrappers with embroidered tops, often featuring traditional symbols of fertility and prosperity.</p>
+                    <span class="attire-tag">Upper East</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modern-traditional">
+        <div class="imgabout">
+            <h1 align="center">MODERN <span>TRADITIONS</span></h1>
+            <div class="line"></div>
+            <p align="center">Today's Ghanaian fashion blends traditional elements with contemporary styles, creating a unique expression of cultural pride that reaches global audiences.</p>
+        </div>
+        <div class="modern-grid">
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/a5/ad/1b/a5ad1b3e87272a5efaedfa9d0f5c7848.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Ankara Fashion</h3>
+                    <p>Modern clothing designs using African wax prints have revolutionized Ghanaian fashion. Young designers create stunning contemporary pieces — from crop tops and jumpsuits to tailored suits — all featuring vibrant Ankara patterns.</p>
+                </div>
+            </div>
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/22/6d/d1/226dd1a396b684775700bb8a87b6afc0.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Kente Accessories</h3>
+                    <p>Kente-inspired bags, shoes, jewelry, and phone cases bring traditional patterns to everyday fashion. Ghanaian artisans have expanded the use of Kente beyond cloth into luxury accessories.</p>
+                </div>
+            </div>
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/a4/52/5f/a4525f0615505391b2a6f1d8c97b0307.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Corporate Traditional</h3>
+                    <p>Business casual wear incorporating traditional fabrics has become acceptable in Ghanaian workplaces. From Kente ties to Ankara shirts, professionals honor their heritage while maintaining corporate elegance.</p>
+                </div>
+            </div>
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/90/8a/10/908a10890365990cd33fc8afdbc8a47a.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Designer Fusion</h3>
+                    <p>Ghanaian designers like Christie Brown have gained international recognition blending Kente and other fabrics with contemporary silhouettes.</p>
+                </div>
+            </div>
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/65/d5/15/65d5154b7be70a7ba879aa63c3f39ac2.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Head Tie Art (Gele)</h3>
+                    <p>The art of tying head scarves (Gele) has evolved into a sophisticated skill. Tutorials on YouTube and Instagram teach thousands of women to create elaborate Gele styles.</p>
+                </div>
+            </div>
+            <div class="modern-card">
+                <img src="https://i.pinimg.com/736x/84/83/9b/84839b1f4db1747bd40689f1a09fd28f.jpg" alt="">
+                <div class="modern-card-content">
+                    <h3>Textile Industry</h3>
+                    <p>Ghana's textile industry has grown significantly with local manufacturers producing high-quality wax prints. Brands like GTP and ATL create fabrics that compete with imported prints.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+            <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+            <div class="footer-gov-logos">
+                <a href="https://ghanaculture.gov.gh/" target="_blank">
+                    <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                </a>
+                <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                    <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="culture.html">Culture/Traditions</a>
+            <a href="food.html">Food</a>
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+        </div>
+        
+        <div class="footer-categories">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="symbols.html">Adinkra Symbols</a></li>
+                <li><a href="lang.html">Languages</a></li>
+                <li><a href="dressing.html">Traditional Dressing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-contact">
+            <h4>Get Involved</h4>
+            <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+            <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+            <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+          
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p align="">&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+   
+    </div>
+</footer>
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+            <h3 id="modalTitle"></h3>
+            <p id="modalBody"></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+        
+function toggleDropdown(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var dropdown = event.currentTarget.parentElement;
+            dropdown.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            var navLinks = document.querySelectorAll('#nav-menu a');
+            
+            navLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Cuisine - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV_lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTwitter==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .food-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/1200x/20/6b/9f/206b9f9d3a3744589217946ff04b2db1.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .food-hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+        .food-hero p {
+            font-size: 22px;
+            color: #ddd;
+        }
+        span {
+            color: #;
+        }
+        .food-hero span {
+            color: #f4c542;
+        }
+        
+        .patriotism-food {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://i.pinimg.com/1200x/8f/7e/f3/8f7ef3ecc4838ebcf4b41eaa7954b2a0.jpg') no-repeat center center/cover; */
+            padding: 60px 40px;
+            color: white;
+            text-align: center;
+        }
+        .patriotism-food h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .patriotism-food h2 span {
+            color: #f4c542;
+        }
+        .patriotism-food p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #807d7d;
+        }
+        
+        .food-section {
+            padding: 50px 40px;
+        }
+        .food-section:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 38px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .section-title h2 span {
+            color: #f4c542;
+        }
+        .section-title p {
+            font-size: 18px;
+            color: #1b1a1a;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .dish-card {
+            background: white;
+            border-radius: 15px;
+            /* overflow: hidden; */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        .dish-card:hover {
+            transform: translateY(-10px);
+            border-color: #f4c542;
+            box-shadow: 0 8px 25px rgba(244, 197, 66, 0.4);
+        }
+        .dish-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .dish-content {
+            padding: 20px;
+        }
+        .dish-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .dish-content p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .dish-content .region {
+            display: inline-block;
+            background: #f4c542;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .dish-detail {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        .dish-detail.reverse {
+            flex-direction: row-reverse;
+        }
+        .dish-detail-img {
+            flex: 1;
+        }
+        .dish-detail-img img {
+            width: 100%;
+            border-radius: 20px;
+        }
+        .dish-detail-text {
+            flex: 1;
+        }
+        .dish-detail-text h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .dish-detail-text h3 span {
+            color: #f4c542;
+        }
+        .dish-detail-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .dish-detail-text .patriotism-note {
+            background: linear-gradient(135deg, #f4c542, #e0b837);
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 900px) {
+            .dish-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dish-detail {
+                flex-direction: column;
+            }
+            .dish-detail.reverse {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 600px) {
+            .dish-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 15px;
+            }
+            .food-hero {
+                margin-top: 60px;
+                height: 50vh;
+                padding: 0 15px;
+            }
+            .food-hero h1 {
+                font-size: 28px;
+            }
+            .food-hero p {
+                font-size: 14px;
+            }
+            .dish-card img {
+                height: 150px;
+            }
+            .food-section {
+                padding: 30px 15px !important;
+            }
+            .dish-detail {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+            .dish-detail.reverse {
+                flex-direction: column;
+            }
+            .dish-detail-img img {
+                width: 100%;
+                height: auto;
+            }
+            .dish-detail-text h3 {
+                font-size: 20px;
+            }
+            .dish-detail-text p {
+                font-size: 13px;
+            }
+            .patriotism-food {
+                padding: 30px 15px;
+            }
+            .patriotism-food h2 {
+                font-size: 20px;
+            }
+            .patriotism-food p {
+                font-size: 13px;
+            }
+            .section-title {
+                padding: 0 10px;
+            }
+            .section-title h2 {
+                font-size: 22px;
+            }
+            .ethnic-grid, .dining-grid {
+                grid-template-columns: 1fr !important;
+                padding: 0 15px;
+            }
+            .ethnic-item {
+                flex-direction: column !important;
+                text-align: center;
+                padding: 20px 15px !important;
+            }
+            .ethnic-item img {
+                width: 100% !important;
+                height: 150px !important;
+            }
+            .ethnic-item div {
+                text-align: center;
+            }
+            .ethnic-item h3 {
+                font-size: 18px !important;
+            }
+            .ethnic-item p {
+                font-size: 13px !important;
+            }
+            .dining-grid .dish-card {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maiinn">
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logoimg">
+                        <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                    </div>
+                </a>
+                <div class="logoname">
+                    <h5>SANKOFA GHANA</h5>
+                </div>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                                    <a href="/culture.html" class="dropbtn" onclick="toggleDropdown()">Cuture/Traditions ▾</a>
+                    <!-- <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a> -->
+                    <div class="dropdown-content">
+                        <a href="symbols.html">Symbolism & Arts</a>
+                        <a href="lang.html">Language & Communication</a>
+                        <a href="music.html">Performing Arts</a>
+                        <a href="dressing.html">Traditional Dressing</a>
+                    </div>
+                </div>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <!-- <a href="rites.html">Rite of Passages</a> -->
+                <a href="festivals.html">Festivals</a>
+                <a href="gallery.html">Gallery</a>
+                <!-- <a href="contact.html">Contact</a> -->
+                <a href="contact.html" class="nav-btn">Join the Movement</a>
+            </nav>
+        </header>
+    </div>
+
+    <section class="food-hero">
+        <div>
+            <h1>GHANAIAN <span>CUISINE</span></h1>
+            <p>The taste of home, the flavor of heritage</p>
+        </div>
+    </section>
+
+    <section class="patriotism-food">
+        <h2><span> FOOD AS PATRIOTISM</span></h2>
+        <p>In Ghana, food is more than sustenance  it is a cultural expression that binds us to our roots. Every dish carries the stories of our ancestors, the flavors of our lands, and the warmth of our communities. When we prepare and share traditional meals, we honor our heritage and pass it to future generations. Eating Ghanaian food is an act of patriotism  a delicious way to preserve our identity.</p>
+    </section>
+
+    <section class="food-section">
+        <div class="section-title">
+            <h2>OUR <span>SIGNATURE DISHES</span></h2>
+            <p>From jollof rice to banku and tilapia, each dish tells a story of our people and land.</p>
+        </div>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/1200x/20/6b/9f/206b9f9d3a3744589217946ff04b2db1.jpg" alt="Kenkey">
+                <div class="dish-content">
+                    <h3>Kenkey</h3>
+                    <p>Fermented corn dough, a staple of the Ga and Fante people. Served with pepper and fried fish.</p>
+                    <span class="region">Greater Accra</span>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/1200x/c4/6a/ca/c46aca5f6cca24f7866b3125b1e92f18.jpg" alt="Tuo Zaafi">
+                <div class="dish-content">
+                    <h3>Tuo Zaafi (TZ)</h3>
+                    <p>Corn or millet dough served with green leafy soup. The comfort food of Northern Ghana.</p>
+                    <span class="region">Northern Region</span>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/1200x/88/27/2c/88272c6c636117c256073d0671dcff31.jpg" alt="Fufu">
+                <div class="dish-content">
+                    <h3>Fufu with Goat Meat</h3>
+                    <p>Pounded cassava and plantain served with rich light soup or palm nut soup.</p>
+                    <span class="region">Nationwide</span>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/736x/4f/6b/4a/4f6b4a8f585b6689008afe561f074c77.jpg" alt="Banku">
+                <div class="dish-content">
+                    <h3>Banku & Tilapia</h3>
+                    <p>Fermented cassava and corn dough, grilled tilapia with pepper — a favorite coastal dish.</p>
+                    <span class="region">Central & Volta</span>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/1200x/07/a5/cb/07a5cbe31368ed98f4fcf79a54278c10.jpg" alt="Jollof Rice">
+                <div class="dish-content">
+                    <h3>Jollof Rice</h3>
+                    <p>One-pot rice dish cooked in tomato sauce. A staple at celebrations across Ghana.</p>
+                    <span class="region">Nationwide</span>
+                </div>
+            </div>
+            <div class="dish-card">
+                <img src="https://i.pinimg.com/736x/53/87/41/538741b7a2c7de597251c507cbb14363.jpg" alt="Waakye">
+                <div class="dish-content">
+                    <h3>Waakye</h3>
+                    <p>Rice and beans cooked together, usually served with shrimps, spaghetti, and stew.</p>
+                    <span class="region">Northern Ghana</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section">
+        <div class="dish-detail">
+            <div class="dish-detail-img">
+                <img src="https://i.pinimg.com/1200x/20/6b/9f/206b9f9d3a3744589217946ff04b2db1.jpg" alt="Kenkey">
+            </div>
+            <div class="dish-detail-text">
+                <h3><span>KENKEY</span> - The Ga People's Heritage</h3>
+                <p>Kenkey is a traditional dish from the Ga people of Accra, made from fermented corn dough. The fermentation process was discovered long ago as a way to preserve food and add unique flavor. Today, kenkey is enjoyed across Ghana, not just by the Ga people.</p>
+                <p>Served with pepper crudaiola (sliced raw peppers with onions) and fried fish or grilled tilapia, kenkey represents the communal nature of Ghanaian dining — sharing food strengthens bonds.</p>
+                <div class="patriotism-note">
+                    <i class="fa-solid fa-flag"></i> Eating kenkey is celebrating Ga heritage and supporting local food traditions.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section">
+        <div class="dish-detail reverse">
+            <div class="dish-detail-img">
+                <img src="https://i.pinimg.com/1200x/c4/6a/ca/c46aca5f6cca24f7866b3125b1e92f18.jpg" alt="Tuo Zaafi">
+            </div>
+            <div class="dish-detail-text">
+                <h3><span>TUO ZAAFI</span> - Northern Tradition</h3>
+                <p>Tuo Zaafi (TZ) is the beloved dish of the Mole-Dagbon people in Northern Ghana. Made from corn or millet flour cooked into a smooth, soft dough, it is served with green leafy soup (ademe or ayimbedu) cooked with tomatoes, peppers, and often fish or meat.</p>
+                <p> TZ represents the agricultural heritage of Northern Ghana and the importance of communal eating in our culture.</p>
+                <div class="patriotism-note">
+                    <i class="fa-solid fa-flag"></i> Sharing TZ with family is a tradition that strengthens family bonds and preserves Northern identity.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section">
+        <div class="dish-detail">
+            <div class="dish-detail-img">
+                <img src="https://i.pinimg.com/1200x/84/45/24/844524a89db4265988475505a4f54aea.jpg" alt="Fufu">
+            </div>
+            <div class="dish-detail-text">
+                <h3><span>FUFU</span> - Unity in Diversity</h3>
+                <p>Fufu is cherished by many ethnic groups in Ghana. Made by pounding cassava and plantain (or cocoyam) in a mortar until smooth and stretchy, fufu is served with various soups — light soup (kram or koko), palm nut soup, or groundnut soup.</p>
+                <p>Eating fufu is a communal experience — families gather around one bowl, using their hands to scoop and share. This tradition embodies the Ghanaian spirit of togetherness.</p>
+                <div class="patriotism-note">
+                    <i class="fa-solid fa-flag"></i> Fufu represents unity — we eat from the same bowl, we are one people.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section">
+        <div class="section-title">
+            <h2>PATRIOTIC <span>FOOD VALUES</span></h2>
+            <p>Our food culture reflects the values that define us as a nation.</p>
+        </div>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-content" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-people-group" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Community</h3>
+                    <p>Ghanaian meals are communal. We eat together, share from the same bowl, and welcome others to our table.</p>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-content" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-hand-holding-heart" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Hospitality</h3>
+                    <p>A visitor is offered food first. Sharing our meals is how we show welcome and care.</p>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-content" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-seedling" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Heritage</h3>
+                    <p>Traditional recipes passed down through generations preserve our cultural identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section" style="background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://i.pinimg.com/1200x/8f/7e/f3/8f7ef3ecc4838ebcf4b41eaa7954b2a0.jpg') no-repeat center center/cover; padding: 80px 40px; color: white;">
+        <div class="section-title">
+            <h2 style="color: white;">ETHNIC <span>SPECIALTIES</span></h2>
+            <p style="color: #ddd;">Each region brings its own unique flavors to the Ghanaian table</p>
+        </div>
+        
+        <div class="ethnic-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1100px; margin: 40px auto 0;">
+            <div class="ethnic-item" style="display: flex; gap: 25px; align-items: center; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <img src="https://i.pinimg.com/736x/93/18/37/931837b68ca2789e5195fb52cdd181e6.jpg" alt="Jollof" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #f4c542; font-size: 22px; margin-bottom: 8px;">Jollof Rice</h3>
+                    <p style="color: #ddd; font-size: 15px; line-height: 1.6;">The iconic one-pot rice dish cooked in tomato and pepper sauce. A favorite at celebrations across all ethnic groups.</p>
+                </div>
+            </div>
+            
+            <div class="ethnic-item" style="display: flex; gap: 25px; align-items: center; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <img src="https://i.pinimg.com/1200x/88/27/2c/88272c6c636117c256073d0671dcff31.jpg" alt="Fufu" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #f4c542; font-size: 22px; margin-bottom: 8px;">Fufu</h3>
+                    <p style="color: #ddd; font-size: 15px; line-height: 1.6;">Pounded cassava and plantain served with light soup or palm nut soup. A cherished dish nationwide.</p>
+                </div>
+            </div>
+            
+            <div class="ethnic-item" style="display: flex; gap: 25px; align-items: center; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <img src="https://i.pinimg.com/736x/8d/ab/1c/8dab1c29a87abbaec54adaa4ab0d60a0.jpg" alt="Banku" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #f4c542; font-size: 22px; margin-bottom: 8px;">Banku</h3>
+                    <p style="color: #ddd; font-size: 15px; line-height: 1.6;">Fermented cassava and corn dough, best enjoyed with grilled tilapia and pepper. A coastal specialty.</p>
+                </div>
+            </div>
+            
+            <div class="ethnic-item" style="display: flex; gap: 25px; align-items: center; background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                <img src="https://i.pinimg.com/736x/53/87/41/538741b7a2c7de597251c507cbb14363.jpg" alt="Waakye" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #f4c542; font-size: 22px; margin-bottom: 8px;">Waakye</h3>
+                    <p style="color: #ddd; font-size: 15px; line-height: 1.6;">Rice and beans cooked together, commonly served with shrimps, spaghetti, and stew. Northern Ghana's gift.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-section">
+        <div class="section-title">
+            <h2>DINING <span>CUSTOMS</span></h2>
+            <p>The traditions that make Ghanaian dining unique</p>
+        </div>
+        
+        <div class="dining-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto;">
+            <div class="dish-card" style="text-align: center;">
+                <img src="https://i.pinimg.com/736x/d1/42/26/d14226717c2678460bb43a9e59fcc516.jpg" alt="Handwashing" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                <div class="dish-content" style="padding: 25px;">
+                    <i class="fa-solid fa-hands-bowl-water" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Handwashing</h3>
+                    <p style="margin-top: 10px;">Before every meal, water is brought for guests to wash their hands. This tradition shows respect and cleanliness.</p>
+                </div>
+            </div>
+            
+            <div class="dish-card" style="text-align: center;">
+                <img src="https://i0.wp.com/greenviewsresidential.com/wp-content/uploads/2024/11/ghana-friendly-community.jpg?resize=1080%2C720&ssl=1" alt="Guest Hospitality" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                <div class="dish-content" style="padding: 25px;">
+                    <i class="fa-solid fa-utensils" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Guest Hospitality</h3>
+                    <p style="margin-top: 10px;">Visitors are always offered food first. Sharing our meals is how we show warmth and welcome.</p>
+                </div>
+            </div>
+            
+            <div class="dish-card" style="text-align: center;">
+                <img src="https://accrastreetjournal.com/wp-content/uploads/2026/02/How-Koya-Restaurant-Ghana-Became-Accras-Go-To-Spot-for-Ordering-Local-Food-on-WhatsApp.jpg" alt="Communal Dining" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                <div class="dish-content" style="padding: 25px;">
+                    <i class="fa-solid fa-users" style="font-size: 40px; color: #f4c542; margin-bottom: 15px; display: block;"></i>
+                    <h3>Communal Dining</h3>
+                    <p style="margin-top: 10px;">Families gather around one bowl, eating together from the same plate. This strengthens bonds and unity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+<div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+                <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+                <div class="footer-gov-logos">
+                    <a href="https://ghanaculture.gov.gh/" target="_blank">
+                        <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                    </a>
+                    <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                        <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="culture.html">Culture/Traditions</a>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="symbols.html">Adinkra Symbols</a></li>
+                    <li><a href="lang.html">Languages</a></li>
+                    <li><a href="dressing.html">Traditional Dressing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get Involved</h4>
+                <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+                <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+                <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+               
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+          
+        </div>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+        var nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+    }
+    
+function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget.parentElement;
+        dropdown.classList.toggle('active');
+    }
+    
+document.addEventListener('DOMContentLoaded', function() {
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var navLinks = document.querySelectorAll('#nav-menu a');
+    
+    navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>

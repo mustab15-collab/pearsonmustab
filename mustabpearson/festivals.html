@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV_lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .festivals-hero {
+            background: #1a1a1a;
+            background: linear-gradient(rgba(0, 0, 0, 0.834),rgba(0, 0, 0, 0.821),rgba(0, 0, 0, 0.881)), url('https://i.pinimg.com/1200x/a8/30/65/a83065521bc793ac20e2fc0dcb3f08dd.jpg');
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 20px;
+        }
+        .festivals-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .festivals-hero p {
+            font-size: 20px;
+            color: #ccc;
+        }
+        .festivals-hero span {
+            color: #f4c542;
+        }
+
+        .festival-section {
+            padding: 60px 30px;
+            background-color: #fafafa;
+        }
+        .section-light { 
+            background-color: #fafafa;
+        }
+        .section-gray { background: #f5f5f5; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .section-header h2 span {
+            color: #f4c542;
+        }
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .festival-detail {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .festival-detail.reverse { flex-direction: row-reverse; }
+        .festival-img {
+            width: 50%;
+            height: 380px;
+            overflow: hidden;
+        }
+        .festival-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .festival-content {
+            width: 50%;
+            padding: 40px;
+        }
+        .festival-content .ethnic-tag {
+            display: inline-block;
+            background: #f4c542;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .festival-content h3 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .festival-content .history {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .festival-content p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .festival-content .highlight {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f4c542;
+        }
+        .festival-content .highlight h4 {
+            font-size: 14px;
+            color: #f4c542;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .festival-content .highlight p {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 0;
+        }
+
+        .importance-section {
+            background: #1a1a1a;
+            padding: 80px 30px;
+            color: white;
+            text-align: center;
+        }
+        .importance-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .importance-section h2 span {
+            color: #f4c542;
+        }
+        .importance-section > p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .values-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .value-item {
+            text-align: center;
+            padding: 25px 30px;
+            border: 2px solid #f4c542;
+            border-radius: 15px;
+            background: rgba(244, 197, 66, 0.1);
+            min-width: 180px;
+        }
+        .value-item i {
+            font-size: 36px;
+            color: #f4c542;
+            margin-bottom: 15px;
+        }
+        .value-item h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .value-item p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .festival-detail, .festival-detail.reverse {
+                flex-direction: column;
+            }
+            .festival-img {
+                width: 100% !important;
+                height: 280px !important;
+            }
+            .festival-content {
+                width: 100% !important;
+                padding: 25px;
+            }
+            .festival-content h3 {
+                font-size: 26px;
+            }
+        }
+        @media (max-width: 768px) {
+            .festivals-hero h1 {
+                font-size: 32px;
+            }
+            .festivals-hero p {
+                font-size: 16px;
+            }
+            .festival-section {
+                padding: 40px 20px;
+            }
+            .section-header h2 {
+                font-size: 28px;
+            }
+            .values-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .value-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background: #f4c542;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .read-more-btn:hover {
+            background: #d4a830;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+        }
+        .modal-close:hover {
+            color: #f4c542;
+        }
+        .modal-content h3 {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalBody"></p>
+    </div>
+</div>
+
+<header class="navbar">
+        <div class="logo">
+<a href="index.html">
+                <div class="logoimg">
+                    <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                </div>
+            </a>
+            <div class="logoname">
+                <h5>SANKOFA GHANA</h5>
+            </div>
+        </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                                <a href="/culture.html" class="dropbtn" onclick="toggleDropdown()">Cuture/Traditions ▾</a>
+                <!-- <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a> -->
+                <div class="dropdown-content">
+                    <a href="symbols.html">Symbolism & Arts</a>
+                    <a href="lang.html">Language & Communication</a>
+                    <a href="music.html">Performing Arts</a>
+                    <a href="dressing.html">Traditional Dressing</a>
+                </div>
+            </div>
+            <a href="food.html">Food</a>
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+            <a href="gallery.html">Gallery</a>
+            <!-- <a href="contact.html">Contact</a> -->
+            <a href="contact.html" class="nav-btn">Join the Movement</a>
+        </nav>
+    </header>
+
+    <section class="festivals-hero">
+        <div>
+            <h1>FESTIVALS OF <span>GHANA</span></h1>
+            <p>Celebrating our heritage, uniting our people through centuries of tradition</p>
+        </div>
+    </section>
+
+    <section class="festival-section section-light">
+        <div class="section-header">
+            <h2> MAJOR <span>GHANAIAN FESTIVALS</span></h2>
+            <p>Each festival carries centuries of history, spiritual significance, and cultural identity</p>
+        </div>
+
+        <div class="festival-detail">
+            <div class="festival-img">
+                <img src="https://i.pinimg.com/1200x/59/10/b8/5910b81ded2a9f805855455b4417b7b6.jpg" alt="Homowo Festival">
+            </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">GA-ADANGME</span>
+                <h3>Homowo</h3>
+joy thus the name
+                <p>Today, Homowo is a harvest festival celebrated by the Ga people in Greater Accra. The festival commemorates the Ga people's survival of severe famine and honors their ancestors. It involves elaborate rituals including the washing of the chiefs' feet, traditional drumming, and the famous "Kpashru" procession.</p>
+                <p>During the festival, families prepare traditional dishes including "Tornado" (fish and palm oil stew) and "Kpekpele" (steamed corn dough). Palm wine is sprinkled on the Krofor (kings) as part of the sacred rituals.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Homowo strengthens community bonds and preserves Ga cultural heritage. It reminds the Ga people of their resilience and unity in overcoming adversity.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('homowo')">Read More</button>
+            </div>
+        </div>
+
+        <div class="festival-detail reverse">
+            <div class="festival-img">
+                <img src="https://i.pinimg.com/1200x/fb/ec/a4/fbeca423824542e27fc5a65c5610cb06.jpg" alt="Odwira Festival">
+            </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">AKAN</span>
+                <h3>Odwira</h3>
+                <p class="history">📜 History: The Odwira festival dates back to the founding of the Akan Kingdom centuries ago. Originally a harvest thanksgiving ceremony, it evolved to become one of the most important Akan festivals, celebrated by the Ashanti, Akuapem, and Fante peoples. The festival marks the end of the harvest season and honors the ancestors.</p>
+                <p>Odwira is a purification and thanksgiving festival that marks the harvest season. It involves ritual cleansing, drumming, dancing, and the symbolic renewal of bonds between the living and the departed. The festival includes the sacred "Adae" ceremony where traditional rulers gather to pay homage to the ancestors.</p>
+"Akwasidae" a Sunday-based
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Odwira reinforces the Akan belief in ancestral spirits and their continued involvement in the lives of their descendants. It teaches gratitude, respect for elders, and the importance of community.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('odwira')">Read More</button>
+            </div>
+        </div>
+
+        <div class="festival-detail">
+            <div class="festival-img">
+                <img src="https://akwaaba.app/wp-content/uploads/2025/02/Aboakyer-Festival-in-Ghana-3.png" alt="">
+     </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">EFFUTU</span>
+                <h3>Aboakyir</h3>
+                <p class="history">📜 History: The Aboakyir festival originated centuries ago among the Effutu people of Winneba as a ritual to prove the bravery and hunting skills of young warriors. Historically, the festival was a military exercise where young men proved their readiness to protect the community. The word "Aboakyir" means "deer hunting" in the Effutu language.</p>
+                <p>The festival features a traditional deer hunt where two Asafo companies (military groups) compete to hunt a deer first. The hunt begins at dawn with the firing of a musket. The winning team receives the prestigious "Golden Stool" honor and immense community respect.</p>
+                <p>The celebration includes elaborate drumming, dancing, and a grand procession to the chief's palace. An "Awo" (traditional priest) blesses the hunters before they set out, invoking ancestral protection for a successful hunt.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Aboakyir showcases the Effutu's rich military traditions and preserves the values of bravery, teamwork, and community service. It brings the community together in friendly competition.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('abokyiir')">Read More</button>
+            </div>
+        </div>
+
+        <div class="festival-detail reverse">
+            <div class="festival-img">
+                               <img src="https://i.pinimg.com/1200x/b8/82/ab/b882ab995e2ae677ee20a893ff62a072.jpg" alt="Aboakyir Festival">
+            </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">DAGBON</span>
+                <h3>Damba</h3>
+                <p class="history">📜 History: The Damba festival commemorates the birth of the Prophet Mohammed and has been celebrated in Dagbon for over 400 years. The festival was introduced through trade routes that connected Northern Ghana with the Mali Empire, where Islam spread. It represents the harmonious blend of indigenous Dagbon traditions with Islamic practices.</p>
+                <p>The Damba is marked by magnificent drumming, traditional dancing, and spectacular horse riding displays. The festival brings together the entire Dagbon kingdom in joyous celebration. The "Naa" (King) appears in his royal regalia, surrounded by drummers and horsemen.</p>
+horses beautifully decorated
+                <div class="highlight">
+                    <h4>Cultural Significance</h4>
+                    <p>The Damba festival represents the spiritual connection between Dagbon's traditional religion and Islam. It showcases the kingdom's Islamic heritage blended with indigenous traditions.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('damba')">Read More</button>
+            </div>
+        </div>
+
+        <div class="festival-detail">
+            <div class="festival-img">
+                <!-- <img src="https://i.pinimg.com/1200x/2c/12/71/2c127122fff391921f415e1788672667.jpg" alt="Kundum Festival"> -->
+           <img src="https://cdn.modernghana.com/images/content/820202125455-1h830n4aau-b677d39460ba10b52fd86bee32e6331e.jpg" alt="">
+            </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">NZEMA & AHANTA</span>
+                <h3>Kundum</h3>
+                <p class="history">📜 History: The Kundum festival dates back to ancient times when the Nzema and Ahanta peoples lived in the Western Region. Originating as a harvest thanksgiving ceremony, it has been celebrated for centuries to give thanks for a successful harvest and to pray for prosperity in the coming year.</p>
+                <p>Kundum is the thanksgiving harvest festival of the Nzema and Ahanta peoples in the Western Region. The celebration spans several days and includes the traditional "ndu" (palm wine) ceremony. Extended families and communities gather to celebrate together.</p>
+                <p>The celebrations begin with the "An Cle" ceremony where the chief's palace is cleansed. Traditional "Kundum" drums are played continuously throughout the night. Local dishes like "Abenkwan" (palm nut soup) and "Fufuo" (pounded yam) are prepared in abundance.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Kundum celebrates the agricultural heritage of the Nzema and Ahanta peoples. It brings communities together, strengthens family bonds, and preserves traditional food culture.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('kundum')">Read More</button>
+            </div>
+        </div>
+
+        <div class="festival-detail reverse">
+            <div class="festival-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Hogb1.jpg" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/a1/1c/62/a11c6260c802fd078d505a9d87f8cbdd.jpg" alt="Hogbetsotso Festival"> -->
+            </div>
+            <div class="festival-content">
+                <span class="ethnic-tag">EWE</span>
+                <h3>Hogbetsotso</h3>
+                <p class="history">📜 History: The Hogbetsotso festival commemorates the migration of the Ewe people from the ancient kingdom of Nnodi to their present homeland in Volta Region. The name means "migration" in Ewe, and the festival recreates the historic journey of the Ewe ancestors.</p>
+"Dzelele" dance a powerful
+                <p>The festival also features "Todzi" (ring dance), where participants hold hands in a circle and dance to traditional songs. Families prepare special dishes including "Aklovi" (fried plantain) and "Azidagbor" (spiced fish stew).</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Hogbetsotso strengthens Ewe identity and unity. It reminds the Ewe people of their origins and reinforces the values of togetherness and cultural preservation.</p>
+                </div>
+                <button class="read-more-btn" onclick="showReadMore('hogbetsotso')">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="importance-section">
+        <h2>WHY FESTIVALS <span>MATTER</span></h2>
+Ghanaian our traditions
+        
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fa-solid fa-users"></i>
+                <h4>Unity</h4>
+                <p>Bringing communities together</p>
+            </div>
+            <div class="value-item">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h4>Gratitude</h4>
+                <p>Thanksgiving for harvest</p>
+            </div>
+            <div class="value-item">
+                <i class="fa-solid fa-book-open"></i>
+                <h4>Heritage</h4>
+                <p>Preserving traditions</p>
+            </div>
+            <div class="value-item">
+                <i class="fa-solid fa-music"></i>
+                <h4>Celebration</h4>
+                <p>Joyful expression</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+<div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+                <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+                <div class="footer-gov-logos">
+                    <a href="https://ghanaculture.gov.gh/" target="_blank">
+                        <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                    </a>
+                    <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                        <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="culture.html">Culture/Traditions</a>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="symbols.html">Adinkra Symbols</a></li>
+                    <li><a href="lang.html">Languages</a></li>
+                    <li><a href="dressing.html">Traditional Dressing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get Involved</h4>
+                <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+                <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+                <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+function toggleMenu() {
+        var nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+    }
+    
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget.parentElement;
+        dropdown.classList.toggle('active');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        var navLinks = document.querySelectorAll('#nav-menu a');
+        
+        navLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    const festivalData = {
+        homowo: {
+            title: 'Homowo Festival',
+            body: 'The Homowo festival is celebrated by the Ga people of Accra and Greater Accra Region. It is a harvest festival that dates back to the 17th century when the Ga people migrated from the Volta Region. The name "Homowo" literally means "to hoot at hunger" or "to mock hunger" - a reference to how the Ga people responded to a devastating famine by cooking and eating the first plentiful harvest of cassava, even throwing food at the drums as they hooted to mock hunger.\n\nThe festival begins with the planting of millet, and throughout the celebration, no food is eaten until certain rituals are performed. Traditional dishes like palm nut soup (abenkwan), fish, and banku are prepared and shared among families. The festivities include traditional drum performances (kayanga), street processions featuring the "omo" (children), and the famous "tso" or street race.\n\nHomowo is a time of reconciliation and unity for the Ga people. Families come together, grievances are settled, and the community celebrates their unique identity and heritage. The festival typically takes place in August/September.'
+        },
+        odwira: {
+            title: 'Odwira Festival',
+            body: 'Odwira (also spelled Odwira) is one of Ghana\'s most important harvest festivals, celebrated primarily by the Akan people - particularly the Ashanti, Akuapem, and Fante. The name comes from the Twi word "dwira" meaning "to sweep" or "to purify," reflecting the festival\'s themes of purification and renewal.\n\nHistorically, Odwira marks the end of the harvest season and serves as a time to give thanks to the ancestors (Asamanwado) for a successful harvest. The festival dates back to the founding of the Akan Kingdom and is deeply intertwined with the spiritual beliefs of the Akan people who maintain a strong connection between the living and their departed ancestors.\n\nThe festival begins with the "Adae" ceremony - a sacred ritual where traditional rulers gather at the palace to pay homage to the ancestors. Special foods and drinks are prepared and offered on traditional stools and shrines. The main Odwira day involves ritual cleansing of towns and villages using herbs and sacred water, performed by traditional priestesses (Nkomfor). Traditional drumming and dancing, especially the famous Adowa dance, continue throughout the night.\n\nThe festival strengthens the social fabric of Akan communities, reinforcing values of family, respect for ancestors, and gratitude for the harvest.'
+        },
+        abokyiir: {
+            title: 'Aboakyir Festival',
+            body: 'Aboakyir (meaning "game hunting") is one of Ghana\'s most famous and colorful cultural festivals, celebrated by the people of Winneba in the Central Region. The festival commemorates the founding of Winneba and dates back over 400 years.\n\nAccording to legend, Winneba was founded by three brothers who migrated from the eastern part of the Ghanaian coast. The festival recreates their hunting expedition when they first arrived in the area. Two Asafo companies (traditional military/ youth organizations) - the Number One (NSA) and Number Two (NSA) - compete to be the first to catch a deer.\n\nThe competition begins with a grand procession through the town, with the asafo members in their colorful traditional wear, singing and dancing to the beats of the "odon" drums. The hunting party then sets out in canoes to catch the deer, with much fanfare and rivalry between the two companies.\n\nThe festival has become a major tourist attraction, showcasing the rich cultural heritage of the Fante people. It features traditional music, dance, drumming, and the display of elaborate traditional costumes. The winning company receives great honor and prestige in the community.'
+        },
+        damba: {
+            title: 'Damba Festival',
+            body: 'The Damba festival is a major cultural celebration of the Dagomba and Gonja people in Northern Ghana. It commemorates the birth of the Prophet Mohammed and is celebrated with great enthusiasm throughout the region. The festival typically falls on the 12th day of the month of Muharram in the Islamic calendar.\n\nThe Damba has deep religious significance, celebrating the birth of the Prophet Mohammed while also incorporating pre-Islamic traditional elements. It serves as a time for the community to come together in celebration of their faith and culture.\n\nHighlights of the festival include the "Damba" drumming - a unique style played on the kash-kash (a horse tail whisk) and dondo drums. Young men perform traditional horse riding displays, dressed in colorful costumes representing warriors and chiefs. The famous "Damba dance" showcases the rich cultural heritage with graceful movements and rhythmic drumming.\n\nTraditional foods like "tuo zaafi" (TZ), millet porridge, and meat dishes are prepared and shared among families. The festival provides an opportunity for families to reunite, for marriages to be celebrated, and for the younger generation to learn about their cultural heritage.'
+        },
+        kundum: {
+            title: 'Kundum Festival',
+            body: 'Kundum is a harvest festival celebrated by the Fante people of the Central Region, particularly in towns like Mankessim and Abura. The name comes from the Fante word "kundum" meaning "new year" or "harvest." The festival marks the end of the farming season and gives thanks for a successful harvest.\n\nThe festival has its origins in ancient times when the Fante people would celebrate the harvest of their crops, particularly millet and maize. It is a time to honor the ancestors and ask for their continued blessings for the next farming season.\n\nThe celebration features the unique "kundum" drums - a set of three drums (odon,emma, and petu) that produce distinctive rhythms. Traditional dances like the "kundum dance" are performed throughout the celebration. Families prepare special dishes including fish, palm nut soup, and fufu to share with neighbors and relatives.\n\nThe festival typically lasts for several days and includes religious observances, traditional rituals, drumming, dancing, and feasting. It serves as an important time for community bonding and preserving Fante cultural traditions.'
+        },
+        hogbetsotso: {
+            title: 'Hogbetsotso Festival',
+            body: 'Hogbetsotso, meaning "Burning of the old clothes," is a prestigious festival celebrated by the Anlo people of the Volta Region. It commemorates the historic migration of the Ewe people from their ancestral home in Ketu in present-day Togo to their current homeland in Ghana.\n\nAccording to oral tradition, the Ewe people were forced to leave their homeland due to the tyranny of the King of Ketu. Under the leadership of the warrior Togo, they migrated eastward and eventually settled in the Volta Region. The festival commemorates this migration and the establishment of the Anlo state.\n\nThe celebration begins with a symbolic search for the lost path of migration, with traditional priests leading the ritual. The festival features the famous Anlo traditional dances, particularly the Agbadza - a graceful dance performed to the beats of the "kagan" and "atoke" drums. Boat racing on the Volta River is another major highlight.\n\nThe festival serves as a reminder of the resilience and unity of the Anlo people. It is a time for families to reunite, for the community to honor their ancestors, and for the younger generation to learn about their heritage. Traditional foods like "aklui" (corn dough with okra soup) and "akpaka" (palm nut soup) are prepared and shared.'
+        }
+    };
+
+    function showReadMore(key) {
+        const data = festivalData[key];
+        if (data) {
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalBody').textContent = data.body;
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+    }
+
+    function closeModal(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    function closeModalDirect() {
+        document.getElementById('modalOverlay').classList.remove('active');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rite of Passages - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV_lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .rites-hero { 
+            background:  linear-gradient(rgba(0, 0, 0, 0.821),rgba(0, 0, 0, 0.854),rgba(0, 0, 0, 0.789)),url('https://i.pinimg.com/1200x/21/54/60/215460fec874a2d116f06f233be36605.jpg'); 
+            height: 55vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            margin-top: 80px; 
+            padding: 30px;
+        }
+        .rites-hero h1 { font-size: 52px; margin-bottom: 20px; }
+        .rites-hero span { color: #f4c542; }
+        .rites-hero p { font-size: 20px; color: #ccc; max-width: 850px; margin: 0 auto; line-height: 1.7; }
+
+        .rites-section { padding: 70px 40px; }
+        .section-light { 
+            background-color: #fafafa;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(244, 197, 66, 0.12) 2px, transparent 2px),
+                radial-gradient(circle at 75px 75px, rgba(0, 107, 63, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 125px 125px, rgba(200, 16, 46, 0.08) 2px, transparent 2px);
+            background-size: 150px 150px;
+        }
+        .section-gray { background: #f8f8f8; }
+
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; color: #333; margin-bottom: 15px; }
+        .section-header h2 span { color: #f4c542; }
+        .section-header p { font-size: 18px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.7; }
+
+        .intro-section {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: #fff;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-left: 6px solid #f4c542;
+        }
+        .intro-section p { font-size: 19px; color: #444; line-height: 1.85; margin-bottom: 15px; }
+        .intro-section strong { color: #f4c542; }
+
+        .rite-detail {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        .rite-detail.reverse { flex-direction: row-reverse; }
+        .rite-img { flex: 1; height: 380px; }
+        .rite-img img { width: 100%; height: 100%; object-fit: cover; }
+        .rite-content { flex: 1; padding: 45px; }
+        .rite-content .ethnic-tag {
+            display: inline-block;
+            background: #f4c542;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .rite-content h3 { font-size: 30px; color: #222; margin-bottom: 20px; }
+        .rite-content .origin { 
+            font-size: 15px; 
+            color: #f4c542; 
+            font-weight: 600; 
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rite-content p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 15px; }
+        .rite-content .significance {
+            background: #f9f9f9;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #f4c542;
+            margin-top: 15px;
+        }
+        .rite-content .significance h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .rite-content .significance p { font-size: 14px; color: #666; margin-bottom: 0; }
+
+        .traditions-header { text-align: center; margin-bottom: 50px; }
+        .traditions-header h2 { font-size: 36px; color: #333; margin-bottom: 15px; }
+        .traditions-header h2 span { color: #f4c542; }
+        .traditions-header p { font-size: 18px; color: #555; max-width: 700px; margin: 0 auto; }
+
+        .tradition-card {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .tradition-card.reverse { flex-direction: row-reverse; }
+        .tradition-img { width: 320px; height: 240px; flex-shrink: 0; }
+        .tradition-img img { width: 100%; height: 100%; object-fit: cover; }
+        .tradition-text { padding: 35px; flex: 1; }
+        .tradition-text h3 { font-size: 26px; color: #222; margin-bottom: 12px; }
+        .tradition-text p { font-size: 16px; color: #555; line-height: 1.75; }
+
+        .patriotism-box {
+            text-align: center;
+            max-width: 800px;
+            margin: 70px auto 0;
+            padding: 50px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            border-radius: 25px;
+            color: white;
+        }
+        .patriotism-box i { font-size: 50px; color: #f4c542; margin-bottom: 20px; display: block; }
+        .patriotism-box h3 { font-size: 28px; margin-bottom: 15px; color: #f4c542; }
+        .patriotism-box p { font-size: 18px; line-height: 1.8; }
+
+        @media (max-width: 1100px) {
+            .rite-detail, .rite-detail.reverse { flex-direction: column; }
+            .rite-img { width: 100%; height: 280px; }
+            .rite-content { padding: 30px; }
+            .tradition-card, .tradition-card.reverse { flex-direction: column; }
+            .tradition-img { width: 100%; height: 220px; }
+        }
+        @media (max-width: 768px) {
+            .rites-hero { height: auto; padding: 60px 20px; }
+            .rites-hero h1 { font-size: 32px; }
+            .rites-hero p { font-size: 16px; }
+            .rites-section { padding: 50px 20px; }
+            .intro-section { padding: 25px; }
+            .intro-section p { font-size: 16px; }
+            .section-header h2 { font-size: 28px; }
+            .rite-content h3 { font-size: 24px; }
+            .rite-content p { font-size: 15px; }
+            .tradition-text h3 { font-size: 22px; }
+            .tradition-text p { font-size: 15px; }
+            .patriotism-box { padding: 30px; }
+            .patriotism-box h3 { font-size: 22px; }
+            .patriotism-box p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <div class="logoimg">
+                    <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                </div>
+            </a>
+            <div class="logoname">
+                <h5>SANKOFA GHANA</h5>
+            </div>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                                <a href="/culture.html" class="dropbtn" onclick="toggleDropdown()">Cuture/Traditions ▾</a>
+                <!-- <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a> -->
+                <div class="dropdown-content">
+                    <a href="symbols.html">Symbolism & Arts</a>
+                    <a href="lang.html">Language & Communication</a>
+                    <a href="music.html">Performing Arts</a>
+                    <a href="dressing.html">Traditional Dressing</a>
+                </div>
+            </div>
+            <a href="food.html">Food</a>
+                <!-- <a href="rites.html">Rite of Passages</a> -->
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+            <a href="gallery.html">Gallery</a>
+            <!-- <a href="contact.html">Contact</a> -->
+            <a href="contact.html" class="nav-btn">Join the Movement</a>
+        </nav>
+    </header>
+
+    <section class="rites-hero">
+        <div>
+            <h1> RITE OF <span>PASSAGES</span></h1>
+            <p>Ghana's traditional ceremonies mark the important milestones in life, from birth to death. These sacred rituals connect us to our ancestors, affirm our identity, and strengthen community bonds.</p>
+        </div>
+    </section>
+
+    <section class="rites-section section-light">
+        <div class="intro-section">
+            <p>Throughout history, Ghanaian communities have marked life's <strong>significant transitions</strong> with elaborate ceremonies and rituals. These rites of passage serve as bridges between generations, ensuring that cultural values, wisdom, and traditions are passed down. From the moment a child is named to the final farewell at a funeral, each ceremony carries <strong>deep spiritual and social meaning</strong>.</p>
+        </div>
+    </section>
+
+    <section class="rites-section section-gray">
+        <div class="section-header">
+            <h2> MAJOR RITE OF <span>PASSAGES</span></h2>
+            <p>Each ceremony carries centuries of history, spiritual significance, and cultural identity</p>
+        </div>
+
+        <div class="rite-detail">
+            <div class="rite-img">
+                <img src="https://i.pinimg.com/736x/76/a0/73/76a0739d3d1a4fa59d735160356414cc.jpg" alt="Naming Ceremony">
+            </div>
+            <div class="rite-content">
+                <span class="ethnic-tag">ALL ETHNIC GROUPS</span>
+                <h3>Naming Ceremony (Outdooring)</h3>
+                <div class="origin">
+                    <i class="fa-solid fa-clock"></i>
+                    Ancient Origins: Centuries old
+                </div>
+                <p>The naming ceremony, known as "outdooring" among the Akan, is one of Ghana's most cherished traditions. On the eighth day after birth (for girls) or ninth day (for boys), the child is officially introduced to the community and given their name.</p>
+                <p>Ancient traditions held that a child who survived the first week was considered blessed by the ancestors. The ceremony involves prayers, libations to the ancestors, and sometimes the first haircut. The name often reflects the day of the week the child was born or family heritage.</p>
+                <div class="significance">
+                    <h4> Cultural Significance</h4>
+                    <p>The naming ceremony marks the child's official entry into the community and connects them to their ancestors. It symbolizes protection, belonging, and the passing of cultural identity from one generation to the next.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rite-detail reverse">
+            <div class="rite-img">
+                <img src="https://i0.wp.com/greenviewsresidential.com/wp-content/uploads/2023/09/dipo-ceremony.jpg?resize=745%2C1000&ssl=1" alt="">
+                <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Dipo_Odumase_Krobo_14.jpg/250px-Dipo_Odumase_Krobo_14.jpg" alt=""> -->
+                <!-- <img src="https://i.pinimg.com/1200x/77/eb/9e/77eb9e5bc61b8a451e99d7a4f4608497.jpg" alt="Coming of Age"> -->
+            </div>
+            <div class="rite-content">
+                <span class="ethnic-tag">AKAN & GA</span>
+                <h3>Coming of Age (Puberty Rites)</h3>
+                <div class="origin">
+                    <i class="fa-solid fa-clock"></i>
+                    Ancient Origins: Over 400 years
+                </div>
+                <p>Coming of age ceremonies among the Akan and Ga people mark a child's transition into adulthood. For girls, this is often called "Bragro" or "Puberty Rites," where young women are taught traditional values, cooking, and household management.</p>
+                <p>Historically, these rites prepared young people for marriage and adult responsibilities. The ceremonies involve seclusion, teachings from elder women, and the learning of cultural songs and dances. Today, they have been adapted but still hold important cultural value.</p>
+                <div class="significance">
+                    <h4> Cultural Significance</h4>
+                    <p>Coming of age rites teach young people their cultural heritage and prepare them for adult responsibilities. They reinforce community values, respect for elders, and the importance of cultural preservation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rite-detail">
+            <div class="rite-img">
+                <img src="https://weddors.com/wp-content/uploads/2021/02/traditional-marriage-in-ghana.jpeg" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/8a/cd/2f/8acd2fd8782536c920fde9a0973d5e8e.jpg" alt="Marriage Ceremony"> -->
+            </div>
+            <div class="rite-content">
+                <span class="ethnic-tag">ALL ETHNIC GROUPS</span>
+                <h3>Traditional Marriage</h3>
+                <div class="origin">
+                    <i class="fa-solid fa-clock"></i>
+                    Ancient Origins: Centuries old
+                </div>
+                <p>Traditional Ghanaian marriage is a rich ceremony that varies across ethnic groups but shares common elements. The process begins with the introduction (knocking) ceremony, followed by the engagement and the main wedding celebration.</p>
+                <p>Among the Akan, the "Kookoo" (dowry) is presented to the bride's family. Traditional attire, drumming, dancing, and symbolic rituals mark the union. The ceremony connects two families, not just two individuals, and involves ancestral blessings.</p>
+                <div class="significance">
+                    <h4> Cultural Significance</h4>
+                    <p>Traditional marriage strengthens family bonds and community ties. It ensures cultural continuity by joining families and creating new connections that preserve heritage through generations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rite-detail reverse">
+            <div class="rite-img">
+                <!-- <img src="https://i.pinimg.com/1200x/fb/ec/a4/fbeca423824542e27fc5a65c5610cb06.jpg" alt="Funeral Rites"> -->
+                 <img src="https://static.wixstatic.com/media/42779c_e643bfe532174b1392b6ac54a91bec5a.jpg/v1/fill/w_768,h_512,al_c,lg_1,q_85/42779c_e643bfe532174b1392b6ac54a91bec5a.jpg" alt="">
+            </div>
+            <div class="rite-content">
+                <span class="ethnic-tag">ALL ETHNIC GROUPS</span>
+                <h3>Funeral Rites</h3>
+                <div class="origin">
+                    <i class="fa-solid fa-clock"></i>
+                    Ancient Origins: Ancient traditions
+                </div>
+                <p>Funerals in Ghana are among the most important cultural ceremonies, viewed as a transition to ancestorhood rather than an end. The Akan believe the dead become "saman" (ancestors) who continue to watch over the living.</p>
+                <p>Funeral preparations include washing the body, dressing in white, and elaborate ceremonies that can last several days. The "bidding" (waking) involves drumming, dancing, and celebrating the life of the deceased. Libations are poured to welcome ancestral spirits.</p>
+                <div class="significance">
+                    <h4> Cultural Significance</h4>
+                    <p>Funeral rites honor the deceased and ensure their peaceful transition to ancestorhood. They bring communities together, reinforce family bonds, and keep alive the memory of those who have passed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rites-section section-light">
+        <div class="traditions-header">
+            <h2>🏺 TRADITIONAL <span>CEREMONIES</span></h2>
+            <p>Ceremonies that mark spiritual and cultural milestones in Ghanaian life</p>
+        </div>
+
+        <div class="tradition-card">
+            <div class="tradition-img">
+                <img src="https://encyclopaediaafricana.com/wp-content/uploads/2024/01/dipo_2-1.png" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/2c/12/71/2c127122fff391921f415e1788672667.jpg" alt="对接"> -->
+            </div>
+            <div class="tradition-text">
+                <h3>🎵 (Dipo)</h3>
+                <p>The Dipo is a traditional Akan ceremony where grandparents or elders formally introduce their grandchildren to the ancestors. This blessing connects the child to the family's spiritual lineage and invokes protection from ancestral spirits.</p>
+                <p>During this ceremony, the elder pours libation and places the child's hands on traditional items, blessing them with wisdom, long life, and prosperity. It represents the passing of cultural knowledge from one generation to the next.</p>
+            </div>
+        </div>
+
+        <div class="tradition-card reverse">
+            <div class="tradition-img">
+                <!-- <img src="https://i.pinimg.com/1200x/3a/20/4d/3a204d4947e7b4b5459235c5e47d9b9f.jpg" alt=" stool Naming"> -->
+            <img src="https://lh5.googleusercontent.com/proxy/Iy1TWMBYL6F0UdaRjK6jY1FXImzg1Dj_hz64Nx3wS0Iz3KhQuO7V4vmwXp5o8GMPzCE0LWX0Lz-ycTXOPZQ1OkDs0LkM1haVRGaWLNFWGhdX5sw31JBAM0It3SJCK1wMRjXhmAdB9GBLpzi5hde2IT_yyZTx" alt="">
+            </div>
+            <div class="tradition-text">
+                <h3>🎵 Stool Naming</h3>
+                <p>Among royal families and chiefs, stool naming ceremonies are significant events that connect rulers to their ancestral throne. When a new chief is enstooled, they receive a name that connects them to the lineage of previous rulers.</p>
+                <p>The ceremony involves ritual cleansing, prayers to the ancestors, and the presentation of sacred regalia. The chief's "stool name" carries spiritual authority and represents their duty to uphold the traditions of their ancestors.</p>
+            </div>
+        </div>
+
+        <div class="tradition-card">
+            <div class="tradition-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0F7WWZk2uPewGBgtIcQpG-AI_mVeunjSBnQ&s" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/fb/ec/a4/fbeca423824542e27fc5a65c5610cb06.jpg" alt="Hair Shaving"> -->
+            </div>
+            <div class="tradition-text">
+                <h3>🎵 Hair Shaving Ceremony</h3>
+                <p>The hair shaving ceremony, common among the Ga and Akan, typically occurs when a child reaches a certain age or after a significant life event. It represents a fresh start and the shedding of the old.</p>
+                <p>Often performed by a grandparent or respected elder, the ceremony involves shaving the child's hair while prayers are said for their wellbeing, success, and protection. The first hair is sometimes preserved as a keepsake.</p>
+            </div>
+        </div>
+
+        <div class="patriotism-box">
+            <i class="fa-solid fa-star"></i>
+            <h3>🇬🇭 PATRIOTISM THROUGH TRADITIONS</h3>
+ceremonies  they are the threads
+        </div>
+    </section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo-section">
+                <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+           
+                   <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+            </div>
+            <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+            <div class="footer-gov-logos">
+                <a href="https://ghanaculture.gov.gh/" target="_blank">
+                    <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                </a>
+                <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                    <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="culture.html">Culture/Traditions</a>
+            <a href="food.html">Food</a>
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+        </div>
+        
+        <div class="footer-categories">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="symbols.html">Adinkra Symbols</a></li>
+                <li><a href="lang.html">Languages</a></li>
+                <li><a href="dressing.html">Traditional Dressing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-contact">
+            <h4>Get Involved</h4>
+            <p>Share your stories, volunteer for cultural projects, or connect with us to help preserve Ghanaian traditions.</p>
+            <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+            <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+          
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p align="">&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+   
+    </div>
+</footer>
+    <script>
+function toggleMenu() {
+        var nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+    }
+    
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget.parentElement;
+        dropdown.classList.toggle('active');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        var navLinks = document.querySelectorAll('#nav-menu a');
+        
+        navLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

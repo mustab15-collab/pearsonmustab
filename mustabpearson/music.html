@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performing Arts - Sankofa Ghana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://micahmandesign.com/wp-content/uploads/2019/06/thebrandghcolblackstar-copy.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV_lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .arts-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.848),rgba(0, 0, 0, 0.726),black),url('https://i.pinimg.com/1200x/ce/72/38/ce72383e513b2df5890db67e3e97d737.jpg');
+            height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 20px;
+        }
+        .arts-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .arts-hero p {
+            font-size: 20px;
+            color: #ccc;
+        }
+        .arts-hero span {
+            color: #f4c542;
+        }
+
+        .arts-section {
+            padding: 60px 30px;
+            background-color: #fafafa;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(244, 197, 66, 0.12) 2px, transparent 2px),
+                radial-gradient(circle at 75px 75px, rgba(0, 107, 63, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 125px 125px, rgba(200, 16, 46, 0.08) 2px, transparent 2px);
+            background-size: 150px 150px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .section-header h2 span {
+            color: #f4c542;
+        }
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dance-box {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .dance-box.rev { flex-direction: row-reverse; }
+        .dance-pic {
+            width: 50%;
+            height: 600px;
+        }
+        .dance-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dance-info {
+            width: 50%;
+            padding: 40px;
+        }
+        .dance-info .tag {
+            display: inline-block;
+            background: #f4c542;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .dance-info h3 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .dance-info .origin {
+            font-size: 14px;
+            color: #f4c542;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .dance-info p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .dance-info .highlight {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f4c542;
+            margin-top: 15px;
+        }
+        .dance-info .highlight h4 {
+            font-size: 14px;
+            color: #f4c542;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .dance-info .highlight p {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 0;
+        }
+
+        .patriotism-section {
+            background: #1a1a1a;
+            padding: 80px 30px;
+            color: white;
+            text-align: center;
+        }
+        .patriotism-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .patriotism-section h2 span {
+            color: #f4c542;
+        }
+        .patriotism-section > p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .dance-box, .dance-box.rev { flex-direction: column; }
+            .dance-pic { width: 100%; height: 280px; }
+            .dance-info { width: 100%; padding: 25px; }
+            .dance-info h3 { font-size: 26px; }
+        }
+        @media (max-width: 768px) {
+            .arts-hero h1 { font-size: 32px; }
+            .arts-hero p { font-size: 16px; }
+            .arts-section { padding: 40px 20px; }
+            .section-header h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <div class="logoimg">
+                    <img src="images/Sankofa-removebg-preview.png" alt="" height="50px" width="50px"> 
+                </div>
+            </a>
+            <div class="logoname">
+                <h5>SANKOFA GHANA</h5>
+            </div>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <!-- <a href="culture.html" class="dropbtn" onclick="toggleDropdown(event)">Culture/Traditions ▾</a> -->
+                 <a href="/culture.html" class="dropbtn" onclick="toggleDropdown()">Cuture/Traditions ▾</a>
+                <div class="dropdown-content">
+                    <a href="symbols.html">Symbolism & Arts</a>
+                    <a href="lang.html">Language & Communication</a>
+                    <a href="music.html">Performing Arts</a>
+                    <a href="dressing.html">Traditional Dressing</a>
+                </div>
+            </div>
+            <a href="food.html">Food</a>
+            <a href="rites.html">Rite of Passages</a>
+            <a href="festivals.html">Festivals</a>
+            <a href="gallery.html">Gallery</a>
+            <!-- <a href="contact.html">Contact</a> -->
+            <a href="contact.html" class="nav-btn">Join the Movement</a>
+        </nav>
+    </header>
+
+    <section class="arts-hero">
+        <div>
+            <h1> PERFORMING <span>ARTS OF GHANA</span></h1>
+            <p>The rhythmic heartbeat of our culture - where movement tells stories and dance preserves heritage</p>
+        </div>
+    </section>
+
+    <section class="arts-section">
+        <div class="section-header">
+            <h2> GHANAIAN <span>TRADITIONAL DANCES</span></h2>
+            <p>Each dance style carries centuries of history, spiritual significance, and cultural identity</p>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <img src="https://i.pinimg.com/736x/36/be/9a/36be9a9d0332ed115f139029147c20d7.jpg" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/a1/1c/62/a11c6260c802fd078d505a9d87f8cbdd.jpg" alt="Adowa Dance"> -->
+            </div>
+            <div class="dance-info">
+                <span class="tag">AKAN</span>
+                <h3>Adowa</h3>
+                <p class="origin">📜 Origin: Over 400 years | Region: Ashanti, Central, Eastern Ghana</p>
+                <p>The Adowa dance is one of Ghana's most treasured traditional dances, originating from the Akan people centuries ago. It is traditionally performed by women during important ceremonies, funerals, and religious rituals. The dance communicates with ancestral spirits and honors the dead.</p>
+                <p>The slow, elegant movements express grief, respect, and commemoration. Dancers wear black and white attire symbolizing mourning, while the rhythmic drumming creates a solemn atmosphere.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Adowa represents the Akan's deep connection to their ancestors. It serves as a unifying force during cultural celebrations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <img src="https://www.panafricaculture.org/wp-content/uploads/2025/04/Screenshot-2025-04-23-155809.png" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/77/eb/9e/77eb9e5bc61b8a451e99d7a4f4608497.jpg" alt="Kpanlogo Dance"> -->
+            </div>
+            <div class="dance-info">
+                <span class="tag">GA-ADANGME</span>
+                <h3>Kpanlogo</h3>
+                <p class="origin">📜 Origin: Over 300 years | Region: Greater Accra</p>
+                <p>The Kpanlogo dance originated among the Ga people of Ghana and is traditionally performed by young men as a rite of passage into adulthood. This energetic dance was historically associated with the Ga's warrior traditions.</p>
+                <p>The dance is characterized by vigorous movements, foot stomping, and synchronized drumming. Dancers perform in colorful attire with elaborate headdresses, moving in formation to complex drum patterns.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Kpanlogo represents Ga youth, energy, and community spirit. It showcases the Ga people's ability to adapt ancient traditions to modern celebrations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/8a/cd/2f/8acd2fd8782536c920fde9a0973d5e8e.jpg" alt="Agbadza Dance"> -->
+                <img src="https://i0.wp.com/bibliolore.org/wp-content/uploads/2019/07/Agbadza2.jpg?fit=500%2C500&ssl=1" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">EWE</span>
+                <h3>Agbadza</h3>
+                <p class="origin">📜 Origin: Over 500 years | Region: Volta Region</p>
+                <p>The Agbadza dance originates from the Ewe people of Ghana and Togo, with roots tracing back to ancient warrior traditions. Originally, Agbadza was a war dance performed by soldiers before battle.</p>
+                <p>The dance features fierce movements, sharp rhythmic footwork, and powerful gestures that simulate combat. After the era of warfare ended, the dance transformed into a symbol of peace and reconciliation.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Agbadza embodies the Ewe's historical resilience and their ability to transform warrior traditions into expressions of peace.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <img src="https://i.ytimg.com/vi/M0SmDJISdaQ/sddefault.jpg" alt="">
+                <!-- <img src="https://i.pinimg.com/1200x/fb/ec/a4/fbeca423824542e27fc5a65c5610cb06.jpg" alt="Damba Dance"> -->
+            </div>
+            <div class="dance-info">
+                <span class="tag">DAGBON</span>
+                <h3>Damba</h3>
+                <p class="origin">📜 Origin: Over 400 years | Region: Northern Ghana</p>
+                <p>The Damba dance originates from the Dagbon Kingdom in Northern Ghana and is associated with the annual Damba festival celebrating the birth of the Prophet Mohammed.</p>
+gait symbolizing the royal horse
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>The Damba dance represents the spiritual connection between Dagbon's traditional religion and Islam.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/3a/20/4d/3a204d4947e7b4b5459235c5e47d9b9f.jpg" alt="Bamaya Dance"> -->
+                <img src="https://www.graphic.com.gh/images/2025/mar/29/Dance.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">MOLE-DAGBANI</span>
+                <h3>Bamaya</h3>
+                <p class="origin">📜 Origin: Over 300 years | Region: Northern Ghana</p>
+                <p>The Bamaya dance originates from the Mole-Dagbani people of Northern Ghana and is traditionally performed during the annual Damba festival. Known as the "dance of the drums."</p>
+                <p>The dance features intricate footwork, fast rhythmic movements, and colorful costumes. Each movement tells a story of the people's connection to the land and ancestors.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Bamaya celebrates the agricultural heritage and communal spirit of Northern Ghana.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/59/10/b8/5910b81ded2a9f805855455b4417b7b6.jpg" alt="Klama Dance"> -->
+            <img src="https://www.graphic.com.gh/images/2024/oct/05/aaaaaKAR.jpg" alt="">
+
+            </div>
+            <div class="dance-info">
+                <span class="tag">krobo</span>
+                <h3>Klama</h3>
+                <p class="origin">📜 Origin: Over 200 years | Region: Eastern Ghana</p>
+                <p>Klama is an ancient, sacred folk dance and music indigenous to the Krobo people (and other Dangme sub-tribes) of Ghana, traditionally performed during the Dipo (puberty rite) to mark the transition of young women into adulthood.</p>
+               <p>It involves specific hand, foot, and body movements, serving as a social, historical, and cultural rite that showcases maturity, grace, and cultural identity</p>
+                <!-- <p>The dance features energetic movements with emphatic drumming and call-and-response singing. It represents the maritime heritage of the Fante people.</p> -->
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Klama preserves the Krobo people's  heritage and traditions.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+<!-- 
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <img src="https://i.pinimg.com/1200x/b8/82/ab/b882ab995e2ae677ee20a893ff62a072.jpg" alt="Bata Dance">
+            </div>
+            <div class="dance-info">
+                <span class="tag">KROBO</span>
+                <h3>Bata</h3>
+                <p class="origin">📜 Origin: Over 200 years | Region: Eastern Ghana</p>
+                <p>The Bata dance originates from the Krobo people in the Eastern Region. This traditional dance is performed during the annual Odwira festival and naming ceremonies.</p>
+                <p>The dance features graceful, flowing movements accompanied by the rhythmic beating of the Bata drums. Dancers wear traditional Krobo attire with elaborate beadwork.</p>
+                <div class="highlight">
+                    <h4> Cultural Significance</h4>
+                    <p>Bata dance celebrates Krobo identity and their famous bead-making heritage.</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="section-header" style="margin-top: 80px;">
+            <h2>🥁 TRADITIONAL <span>INSTRUMENTS</span></h2>
+            <p>Instruments that have carried Ghanaian stories, rhythms, and spiritual traditions through generations</p>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/8a/cd/2f/8acd2fd8782536c920fde9a0973d5e8e.jpg" alt="Talking Drum"> -->
+                 <img src="https://i.pinimg.com/736x/9c/07/48/9c07480cdc313beb6aa9bbac3bf3cbf9.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">ALL REGIONS</span>
+                <h3>Talking Drum (Gangan)</h3>
+                <p class="origin">📜 Origin: Centuries old | Region: Throughout Ghana</p>
+                <p>The talking drum is one of Africa's most sophisticated instruments. Used for centuries to communicate across vast distances, this drum can mimic the tonal patterns of human speech by adjusting the tension on its strings while playing.</p>
+                <p>Ancient communities relied on talking drums to transmit messages between villages, announce important events, and preserve historical accounts. Today, it remains central to traditional music, preserving oral traditions.</p>
+                <div class="highlight">
+                    <h4> Cultural Importance</h4>
+music capable of speaking
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/fb/ec/a4/fbeca423824542e27fc5a65c5610cb06.jpg" alt="Kora"> -->
+                 <img src="https://adventure.com/wp-content/uploads/2024/01/Hero-West-Africa-Kora-matt-benson-Oat1FtqHBrA-unsplash-Photo-Matt-Benson-scaled.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">NORTHERN GHANA</span>
+                <h3>Kora</h3>
+                <p class="origin">📜 Origin: Ancient Mandé kingdoms | Region: Northern Ghana</p>
+                <p>The Kora is a beautiful West African harp-lute made from a halved gourd with strings traditionally made from fishing line. Its origins trace back to ancient Mandé kingdoms, played exclusively by Griots (oral historians).</p>
+                <p>Griots would accompany their narratives with the Kora's soft, melodic sounds, creating an immersive storytelling experience. The ethereal sounds connect listeners to centuries of oral tradition.</p>
+                <div class="highlight">
+                    <h4> Cultural Importance</h4>
+preservation keeping alive
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/2c/12/71/2c127122fff391921f415e1788672667.jpg" alt="Balafon"> -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Balafoon.jpg/1280px-Balafoon.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">NORTHERN & VOLTA</span>
+                <h3>Balafon</h3>
+                <p class="origin">📜 Origin: Centuries old | Region: Northern & Volta Regions</p>
+                <p>The Balafon is a wooden xylophone consisting of wooden bars of varying sizes suspended over gourd resonators. Its origins in Ghana date back centuries, with evidence suggesting similar instruments in ancient West African kingdoms.</p>
+                <p>Played during religious ceremonies, harvest festivals, and royal court events, different notes carried spiritual meanings and could invoke ancestral spirits.</p>
+                <div class="highlight">
+                    <h4> Cultural Importance</h4>
+                    <p>The Balafon's melodic tones bring joy to celebrations and connect communities to their spiritual heritage.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box rev">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/3a/20/4d/3a204d4947e7b4b5459235c5e47d9b9f.jpg" alt="Fontomfrom"> -->
+                <img src="https://pbs.twimg.com/media/GHzkmCvaMAA5I3p.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">AKAN & EWE</span>
+                <h3>Fontomfrom</h3>
+                <p class="origin">📜 Origin: Ancient tradition | Region: Ashanti & Volta Regions</p>
+                <p>Fontomfrom are prestigious royal drums used in the courts of Ghanaian chiefs and kings. These instruments have ancient origins in Akan and Ewe traditions, serving as symbols of authority for royalty.</p>
+                <p>Only master drummers appointed by the king could play Fontomfrom. The drums announced the arrival of royalty, commanded attention at court, and communicated royal decrees.</p>
+                <div class="highlight">
+                    <h4>Cultural Importance</h4>
+                    <p>Fontomfrom represent the rich royal heritage of Ghana—symbols of chieftaincy and cultural authority.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-box">
+            <div class="dance-pic">
+                <!-- <img src="https://i.pinimg.com/1200x/a1/1c/62/a11c6260c802fd078d505a9d87f8cbdd.jpg" alt="Atumpan"> -->
+                 <img src="https://wmic.net/wp-content/uploads/2021/02/W-Ashanti-Tumpan-Drums450.jpg" alt="">
+            </div>
+            <div class="dance-info">
+                <span class="tag">AKAN</span>
+                <h3>Atumpan (Twin Drums)</h3>
+                <p class="origin">📜 Origin: Centuries old | Region: Ashanti & Central Regions</p>
+                <p>Atumpan are twin drums used by the Akan people, with origins dating back centuries. These paired instruments work together to create complex rhythmic patterns and convey detailed messages.</p>
+                <p>In ancient Akan society, Atumpan drummers were highly respected, serving as intermediaries between chiefs and their subjects. They could announce deaths, call meetings, and tell stories of ancestors.</p>
+                <div class="highlight">
+                    <h4> Cultural Importance</h4>
+                    <p>Atumpan drums are the voice of the Akan people—announcing important events and preserving historical narratives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="patriotism-section">
+        <h2> DANCE AS <span>PATRIOTISM</span></h2>
+        <p>Ghanaian traditional dances are living expressions of our cultural identity. They connect us to our ancestors, unite our communities, and celebrate our heritage. When we preserve and practice these ancient dance forms, we honor our roots and strengthen our national pride.</p>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-section">
+                    <img src="images/Sankofa-removebg-preview.png" alt="Sankofa Ghana">
+               
+                       <h4 class="hashtag">#SANKOFA GHANA <br> <br>#Ghana is not just a place. It is an identity.</h4>
+                </div>
+                <p>Celebrating the rich tapestry of Ghanaian culture and tradition. Together we preserve, together we thrive.</p>
+                <div class="footer-gov-logos">
+                    <a href="https://ghanaculture.gov.gh/" target="_blank">
+                        <img src="https://ghanaculture.gov.gh/wp-content/uploads/2024/07/logo-demo.png" height="40px" alt="Ghana Culture">
+                    </a>
+                    <a href="https://www.ghana.gov.gh/ministries/66ff301772/" target="_blank">
+                        <img src="https://www.ghana.gov.gh/static/images/logos/gov-logo.png" height="40px" alt="Ghana Gov">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="culture.html">Culture/Traditions</a>
+                <a href="food.html">Food</a>
+                <a href="rites.html">Rite of Passages</a>
+                <a href="festivals.html">Festivals</a>
+            </div>
+            <div class="footer-categories">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="symbols.html">Adinkra Symbols</a></li>
+                    <li><a href="lang.html">Languages</a></li>
+                    <li><a href="dressing.html">Traditional Dressing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Get Involved</h4>
+                <p>Share your stories, volunteer for cultural projects, or connect with us.</p>
+                <p><i class="fa-solid fa-envelope"></i> mustab15@icloud.com</p>
+                <p><i class="fa-solid fa-phone"></i> +233 59 500 7987</p>
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sankofa Ghana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+function toggleMenu() {
+        var nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+    }
+    
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget.parentElement;
+        dropdown.classList.toggle('active');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        var navLinks = document.querySelectorAll('#nav-menu a');
+        
+        navLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
